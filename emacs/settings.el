@@ -24,10 +24,9 @@
 (setq highlight-tail-posterior-type 'const)
 (setq highlight-tail-colors '(
                               ("#0000a4" . 0)
-                              ("#0000cc" . 4)
-                              ("#ef2929" . 10)))
-(setq highlight-tail-steps 10                                 
-       highlight-tail-timer 0.1)
+                              ("#2929ef" . 20)))
+(setq highlight-tail-steps 20
+       highlight-tail-timer 0.2)
 
 (highlight-tail-reload)
 
@@ -36,3 +35,6 @@
 
 ;; make company mode support camel case
 (setq company-dabbrev-downcase nil)
+
+
+

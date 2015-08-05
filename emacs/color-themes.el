@@ -80,6 +80,6 @@
 (setq color-theme-is-global nil)
 
 (when (display-graphic-p)
-    (my-theme-cycle-dark)
+;;    (my-theme-cycle-dark)
 )
 

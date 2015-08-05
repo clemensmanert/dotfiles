@@ -2,7 +2,7 @@
 
 ;; Set emacs background colour during loading when in x mode
 (when (display-graphic-p)
-  (set-background-color "#262B2C")
+;;  (set-background-color "#262B2C")
 )
 
 (load-file "~/.emacs.d/used-modes.el")
