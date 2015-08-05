@@ -19,11 +19,11 @@ general {
 ###################
 
 order += "cpu_usage"
-order += "cpu_temperature 0"
 order += "load"
+order += "cpu_temperature 0"
 # order += "run_watch VPN"
 order += "wireless wlan0"
-# order += "ethernet eth0"
+order += "ethernet eth0"
 order += "volume master"
 order += "battery 0"
 order += "time"
@@ -44,8 +44,9 @@ cpu_usage {
 
 ## system load sensor
 load {
-    format = " RAM: %1min "
+    format = " LOAD: %1min "
 }
+
 
 ## CPU temperature sensor
 cpu_temperature 0 {
@@ -84,7 +85,7 @@ run_watch DHCP {
 
 ## time format
 time {
-    format = " %d.%m.%Y %H:%M "
+    format = " %d.%m.%Y - %H:%M "
 }
 
 ## HDD sensor
@@ -99,9 +100,9 @@ disk "/home" {
 
 ## audio volume sensor
 volume master {
-    format = " ♪: %volume"
+    # format = " ♪: %volume"
     # format = " ♫: %volume "
-    # format = " VOLUME: %volume "
+    format = " VOL: %volume "
     device = "default"
     mixer = "Master"
     mixer_idx = 0
