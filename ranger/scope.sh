@@ -55,7 +55,7 @@ case "$extension" in
         try unrar -p- lt "$path" && { dump | trim; exit 0; } || exit 1;;
     # PDF documents:
     pdf)
-        try pdftotext -l 10 -nopgbrk -q "$path" - && \
+        try pdftotext -layout -enc UTF-8 -l 10 -nopgbrk -q "$path" - && \
             { dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
     # BitTorrent Files
     torrent)
@@ -72,7 +72,7 @@ case "$mimetype" in
     # Syntax highlight for text files:
     text/* | */xml)
         # try highlight --out-format=ansi "$path" && { dump | trim; exit 5; } || exit 2;;
-        try highlight --out-format=ansi < "$path" && { dump | trim; exit 5; } 
+        try highlight --out-format=ansi -i "$path" && { dump | trim; exit 5; } 
         # try /home/sflip/src/godlygeek/vim-files/macros/vimcat.sh "$path" && { dump | trim; exit 5; } 
         try cat "$path" && { dump | trim | fmt -s -w $width; exit 5; }
         exit 2;;
