@@ -24,13 +24,16 @@ mode "$reload_restart" {
 
 # Autostart
 # Gtk theme and settings
-exec --no-startup-id "cinnamon-settings-daemon" 
+#exec --no-startup-id "cinnamon-settings-daemon" 
 # Program starter
 exec --no-startup-id "synapse"  
 # Networkmanager in panel                
-exec --no-startup-id "nm-applet"
+#exec --no-startup-id "nm-applet"
 # System status
 exec --no-startup-id "conky"
+
+# music deamon
+exec --no-startup-id "mpd"
 
 # Set wallpaper
 exec --no-startup-id "feh --bg-scale ~/pictures/aurora.png"
@@ -60,7 +63,8 @@ client.background       $normal  $background  $focused     $background
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status --config ~/.i3/i3status
+    #status_command echo '{"version":1}[[],'; xtitle -s -f '[{"full_text": "%s"}],'	
+    status_command python3 /home/clemens/projekte/dotfiles/i3/i3pystatus.config
     position top
     colors {
         background  $background
@@ -110,8 +114,8 @@ mode "$mode_system" {
     bindsym l exec --no-startup-id "i3lock -t -i ~/.i3/wallpaper"; mode "default"
     bindsym s exec --no-startup-id "i3lock -t -i ~/.i3/wallpaper; sudo pm-suspend"; mode "default"
     bindsym h exec --no-startup-id "i3lock -t -i ~/.i3/wallpaper; sudo pm-hibernate"; mode "default"
-    bindsym r exec --no-startup-id "sudo reboot"
-    bindsym p exec --no-startup-id "sudo poweroff"
+    bindsym r exec --no-startup-id "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart"
+    bindsym p exec --no-startup-id "dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -120,19 +124,25 @@ mode "$mode_system" {
 
 
 # set display brightness
-#bindsym XF86KbdBrightnessDown exec "xbacklight -steps 1 -time 0 -dec 10"
-#bindsym XF86KbdBrightnessUp   exec "xbacklight -steps 1 -time 0 -inc 10"
+bindsym XF86KbdBrightnessDown exec "xbacklight -steps 10 -time 0 -dec 10;"
+bindsym XF86KbdBrightnessUp   exec "xbacklight -steps 10 -time 0 -inc 10;"
 
+bindsym $mod+Up   exec "xbacklight -steps 10 -time 0 -dec 10;"
+bindsym $mod+Down exec "xbacklight -steps 10 -time 0 -inc 10;"
 
-# set display brightness
-bindsym $mod+Left   exec "xbacklight -steps 1 -time 0 -dec 10"
-bindsym $mod+Right  exec "xbacklight -steps 1 -time 0 -inc 10"
 
 # set volume
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master 1%-"
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse rsset Master 1%+"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master 3%-; killall -USR1 i3status"
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 3%+; killall -USR1 i3status"
 
-bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle
+bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle; killall -USR1 i3status"
+
+# multimediakeys
+bindsym XF86AudioPlay exec "mpc toggle"
+bindsym XF86AudioStop exec "mpc stop"
+bindsym XF86AudioNext exec "mpc next"
+bindsym Shift + XF86AudioNext exec "mpc del 0"
+bindsym XF86AudioPrev exec "mpc prev"
 
 
 # take a screenshot
@@ -145,10 +155,10 @@ for_window [class="(?i)nemo"]           floating enable
 for_window [title="(?i)sxiv"]           fullscreen
 
 # start a terminal
-bindsym $mod+Shift+o      split horizontal; exec "gnome-terminal --hide-menubar --command='tmux -2'"
-bindsym $mod+o            split vertical;   exec "gnome-terminal --hide-menubar --command='tmux -2'"
-bindsym $mod+Shift+Return split horizontal; exec "gnome-terminal --hide-menubar --command='tmux -2'"
-bindsym $mod+Return       split vertical;   exec "gnome-terminal --hide-menubar --command='tmux -2'"
+bindsym $mod+Shift+o      split horizontal; exec "terminology"
+bindsym $mod+o            split vertical;   exec "terminology"
+bindsym $mod+Shift+Return split horizontal; exec "terminology"
+bindsym $mod+Return       split vertical;   exec "terminology"
 
 # kill focused container
 bindsym $mod+BackSpace kill
@@ -271,3 +281,44 @@ bindsym $mod+Shift+space move container to workspace back_and_forth
 # move container/workspace to other output
 bindsym $mod+y       move container to output right; workspace back_and_forth
 bindsym $mod+Shift+y move workspace to output right
+
+# Gaps
+smart_gaps on
+
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+	        bindsym i      mode "$mode_gaps_inner"
+		        bindsym Return mode "default"
+			        bindsym Escape mode "default"
+				}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+	        bindsym minus gaps inner current minus 5
+		        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+	        bindsym Shift+minus gaps inner all minus 5
+		        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+	        bindsym Escape mode "default"
+		}
+		mode "$mode_gaps_outer" {
+		        bindsym plus  gaps outer current plus 5
+			        bindsym minus gaps outer current minus 5
+				        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+	        bindsym Shift+minus gaps outer all minus 5
+		        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+	        bindsym Escape mode "default"
+		}
+
