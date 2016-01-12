@@ -23,8 +23,8 @@
 ;; Colorize the tail for the cursor
 (setq highlight-tail-posterior-type 'const)
 (setq highlight-tail-colors '(
-                              ("#0000a4" . 0)
-                              ("#2929ef" . 20)))
+                              ("#a40000" . 0)
+                              ("#ef2929" . 20)))
 (setq highlight-tail-steps 20
        highlight-tail-timer 0.2)
 
@@ -37,4 +37,9 @@
 (setq company-dabbrev-downcase nil)
 
 
-
+;; Haskell 
+(add-to-list 'exec-path "~/.cabal/bin")
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
