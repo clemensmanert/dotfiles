@@ -1,0 +1,45 @@
+`# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+# Volume Control
+"pamixer -d 5; pkill -USR1 -f i3pystatus"
+  m:0x0 + c:122
+"pamixer -i 5; pkill -USR1 -f i3pystatus"
+  m:0x0 + c:123
+"pamixer -t; pkill -USR1 -f i3pystatus"
+  m:0x0 + c:121
+
+# set display brightness
+"xbacklight -dec 10; pkill -USR1 -f i3pystatus"
+  m:0x0 + c:232
+"xbacklight -inc 10; pkill -USR1 -f i3pystatus"
+  m:0x0 + c:233
+
+# set display brightness
+"xbacklight -dec 1; pkill -USR1 -f i3pystatus"
+  m:0x1 + c:232
+"xbacklight -inc 1; pkill -USR1 -f i3pystatus"
+  m:0x1 + c:233
+
+# multimediakeys                                                                                                      
+"mpc toggle; pkill -USR1 -f i3pystatus"
+  XF86AudioPlay
+"mpc stop; pkill -USR1 -f i3pystatus"
+  XF86AudioStop
+"mpc next; pkill -USR1 -f i3pystatus"
+  XF86AudioNext
+"mpc del 0; pkill -USR1 -f i3pystatus"
+  Shift + XF86AudioNext
+"mpc prev; pkill -USR1 -f i3pystatus"
+  XF86AudioPrev
+
+# keyboard layout                                                                                                     
+"setxkbmap us; pkill -USR1 -f i3pystatus"
+  Mod4 + e
+"setxkbmap de; pkill -USR1 -f i3pystatus"
+  Mod4 + d
+
+##################################
+# End of xbindkeys configuration #
+##################################
