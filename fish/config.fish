@@ -269,6 +269,8 @@ end
 
 __z_init
 
+# ssh-agent stuff
+set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 set PATH /home/prg/bin $PATH
 set PATH /home/prg/scripts $PATH
