@@ -42,10 +42,10 @@
 ;; List of dark themes to cycle
 (setq my-color-themes-dark (list
 			    'afternoon
+			    'wombat
 			    'naquadah			     
 			    'tango-dark
-			    'deeper-blue		       
-			    'wombat
+			    'deeper-blue		       			    
 			    'tsdh-dark
 		       )) 
 
