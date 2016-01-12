@@ -52,3 +52,6 @@
 
 ;; Ispell dictionaries
 (global-set-key [f6] 'cycle-ispell-languages)
+
+;; unset
+(global-unset-key (kbd "C-z"))
