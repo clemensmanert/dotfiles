@@ -2,7 +2,7 @@
 ;; configurations.
 ;; Author: Clemens Manert (Clemens@Manert.de)
 
-;; All the packages, I want to have instgalled.
+;; All the packages, I want to have installed.
 (setq package-list '(rainbow-delimiters
 		     helm
 		     minimap
@@ -28,21 +28,18 @@
 ;;(package-refresh-contents) 
 
 ;; Install the missing packages
-(dolist (package package-list)
-  (unless (package-installed-p package)
-        (package-install package)))
-
-;; Show the recent opened files in emacs
-(setq recentf-max-menu-items 30)
+;;(dolist (package package-list)
+;; (unless (package-installed-p package)
+;;        (package-install package)))
 
 ;; Show matching parantheses and stuff in fancy colors.
-(rainbow-delimiters-mode 1)
+(rainbow-delimiters-mode t)
 
 ;; Helps finding emacs commands while using M-x.
-(helm-mode 1)
+(helm-mode t)
 
 ;; snippets
-(yas-global-mode 1)
+(yas-global-mode t)
 
 ;; A line at the end of each frame, which holds some use full
 ;; information about the current shown buffer.
@@ -67,7 +64,7 @@
 
 ;; Auto complete for emacs hotkeys
 (setq guide-key/guide-key-sequence 't)
-(guide-key-mode 1)  
+(guide-key-mode t)  
 
 ;; Show the recent openet files in emacs
 (require 'recentf)
@@ -76,39 +73,21 @@
 ;; Use mini-buffer history over the sessions.
 (savehist-mode)
 
-;; Minor Modes for Programming
-(add-hook 'prog-mode-hook 
-	  (lambda () 
-	    (linum-mode 1)
-	    (company-mode 1)
-	    )
-	  )
-
 ;; Minor Modes for JS
 (add-hook 'js3-mode-hook
 	  (lambda ()
-			(linum-mode 1)
-	    (company-mode 1)
-	    (auto-highlight-symbol-mode 1)
-	    (tern-mode 1)
+	    (tern-mode t)
 	    (tern-ac-setup)
-			(auto-fill-mode 1)
+	    (auto-fill-mode t)
 	    ))
 
-;; Minor modes for web
-(add-hook 'web-mode-hook
-	  (lambda ()
-			(linum-mode 1)
-	    (company-mode 1)
-	    (auto-highlight-symbol-mode 1)
-			(auto-fill-mode 1)
-	    ))
+(linum-mode t)
+(auto-complete-mode t)
+(auto-highlight-symbol-mode t)	    
 
 ;; Minor Modes for Programming
 (add-hook 'c-mode-hook 
 	  (lambda () 
-	    (linum-mode 1)
-	    (company-mode 1)
-	    (auto-highlight-symbol-mode 1)	    
+	    (auto-highlight-symbol-mode t)	    
 	    )
 	  )
