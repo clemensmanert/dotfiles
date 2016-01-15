@@ -1,0 +1,21 @@
+#!/bin/bash
+echo $#
+
+if [ $# -lt 2 ]
+then
+    echo "Expected two arguments: program to execute and file observe";
+    exit 1;
+fi
+
+if [ ! -e $2 ]
+then
+    echo -e "File \"$2\" \n does not exists";
+    exit 1;
+fi;
+
+
+while true;
+do
+    inotifywait $2
+    $1 $2
+done;

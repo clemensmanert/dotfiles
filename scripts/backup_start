@@ -1,0 +1,44 @@
+#!/bin/bash
+
+##-----------------------------------------------------
+## Autor: Clemens Manert (clemens@manert.de)
+## Copies specified files in a backup.
+## Requires command gcp from package gcp for progressbar.
+##-----------------------------------------------------
+
+# Configuration stuff
+#------------------------------------------
+# The folders to be copied into the backup.
+backup_sources=( "/home/clemens/documents" "/home/clemens/projekte" "/home/clemens/autenta" "/home/clemens/spielwiesen")
+
+# Where to copy the folders for backup.
+backup_destination="/media/clemens/backup/backups"
+
+# Name of the folder of each backup inside the backup location.
+backup_folder_name=$(date +%F-%T)
+
+#---------------------------------------------
+# end of config
+
+# Path of the current backup.
+backup_current="$backup_destination/$backup_folder_name"
+
+echo "Creating new backup of: "
+for backup_source in "${backup_sources[@]}"
+do
+echo $backup_source
+done;
+
+echo -e "  in $backup_current";
+
+echo -e "\n\nStarted at $backup_folder_name\n":
+
+# Create a new folder for the backup. 
+mkdir $backup_current
+
+for backup_source in "${backup_sources[@]}"
+do
+    echo "Progressing $backup_source:"
+    cp -r $backup_source $backup_current 
+    
+done;

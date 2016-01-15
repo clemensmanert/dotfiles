@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for i in $* 
+do
+    if [ ! -e $i ]
+    then
+	echo "Error: File or directory '$PWD/$i' does not exist!";
+    else
+	mkdir -p ~/.trash/$PWD/$(dirname $i)
+	mv $i ~/.trash/$PWD/$i
+    fi
+done;
+
+
+

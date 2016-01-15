@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+    echo "expected path to theme"
+    exit 1;
+fi;
+
+if [ ! -d $1 ]
+then
+    echo "Theme $1 does not exist";
+    exit 1;
+fi;
+
+gsettings set org.gnome.desktop.interface gtk-theme "$1"

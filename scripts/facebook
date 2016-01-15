@@ -1,0 +1,9 @@
+#!/bin/bash
+# chromium browser:
+#chromium --user-data-dir=/home/clemens/browser_profiles/facebook &
+
+## epiphany browser
+#epiphany --private-instance --profile=/home/config/facebook/ &
+
+# firefox
+firefox -P facebook &

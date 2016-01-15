@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Toggles the monitor on and off
+
+# To remember if monitor was on or off
+monitor_toggle_file_name=".monitor_toggle_monitor_light";
+
+if [ -f $monitor_toggle_file_name ]
+then
+	xrandr --output DP-3 --off;
+	rm $monitor_toggle_file_name;
+	echo "Monitor off";
+else
+	xrandr --output DP-3 --auto;
+	touch $monitor_toggle_file_name;
+	echo "Monitor on";
+fi
+
