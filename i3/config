@@ -23,7 +23,7 @@ mode "$reload_restart" {
 }
 
 # use xfce4 gtk settings
-exec "xfsettingsd"
+exec --no-startup-id "xfsettingsd"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -70,7 +70,7 @@ bar {
 bindsym $mod+Shift+b bar mode toggle
 
 # toggle touchpad
-bindsym XF86TouchpadToggle  exec "~/shellscripts/xinput-toggle-enabled.sh"
+bindsym XF86TouchpadToggle exec --no-startup-id "~/shellscripts/xinput-toggle-enabled.sh"
 
 # focus when mouse moves
 focus_follows_mouse no
@@ -135,7 +135,8 @@ bindsym $mod+Shift+u focus child
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+space layout toggle
+#bindsym $mod+space layout toggle
+bindsym $mod+space workspace back_and_forth
 
 # toggle tiling/floating
 bindsym $mod+Shift+a floating toggle
