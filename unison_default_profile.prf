@@ -19,3 +19,6 @@ ignore = Path projekte/dotfiles/i3/i3pystatus.config
 
 # Use this command for displaying diffs
 diff = meld
+
+# Do not ask for permission if changes are not in conflict
+auto = true
