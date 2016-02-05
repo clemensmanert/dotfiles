@@ -1,0 +1,21 @@
+# Roots
+root = /home/segfault
+root = ssh://192.168.0.2//home/segfault
+
+# Paths to synchronize
+path = spielwiesen
+path = music
+path = projekte
+path = keepass.kdb
+path = autenta.org
+path = documents
+
+# Ignore Emacs package manager files
+ignore = Path projekte/dotfiles/emacs/elpa/*
+ignore = Path projekte/dotfiles/emacs/games/*
+ignore = Path projekte/dotfiles/emacs/url/*
+ignore = Name projekte/dotfiles/emacs/ido.last
+ignore = Path projekte/dotfiles/i3/i3pystatus.config
+
+# Use this command for displaying diffs
+diff = meld
