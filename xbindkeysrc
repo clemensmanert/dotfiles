@@ -22,6 +22,17 @@
 "xbacklight -inc 1; pkill -USR1 -f i3pystatus"
   m:0x1 + c:233
 
+# opens a pdf
+"zathura $(locate "*.pdf" | dmenu -l 100 -i)"
+  Mod4 + d
+
+# chose song and play
+"set -o pipefail; mpc search title "" | dmenu -i -l 100 | mpc insert && mpc next;"
+  Shift + Mod4 + x
+
+"set -o pipefail; mpc search title "" | dmenu -i -l 100 | mpc add;"
+  Mod4 + x 
+
 # multimediakeys                                                                                                      
 "mpc toggle; pkill -USR1 -f i3pystatus"
   XF86AudioPlay
