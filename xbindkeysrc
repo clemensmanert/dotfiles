@@ -27,7 +27,7 @@
   Mod4 + d
 
 # chose song and play
-"set -o pipefail; mpc search title "" | dmenu -i -l 100 | mpc insert && mpc next;"
+"set -o pipefail; mpc search title "" | dmenu -i -l 100 | mpc insert; mpc next;"
   Shift + Mod4 + x
 
 "set -o pipefail; mpc search title "" | dmenu -i -l 100 | mpc add;"
