@@ -89,6 +89,12 @@ if not set -q __prompt_initialized_2
   set -U __prompt_initialized_2
 end
 
+begin
+    set --local AUTOJUMP_PATH /usr/share/autojump/autojump.fish
+    if test -e $AUTOJUMP_PATH
+        source $AUTOJUMP_PATH
+    end
+end
 
 function z -d "Jump to a recent directory."
     set -l datafile "$HOME/.z"
@@ -272,6 +278,9 @@ __z_init
 # ssh-agent stuff
 set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-set PATH /home/prg/bin $PATH
-set PATH /home/prg/scripts $PATH
-set PATH /home/prg/links $PATH
+set PATH /home/segfault/projekte/dotfiles/scripts $PATH
+set PATH /home/segfault/projekte/dotfiles/links $PATH
+
+set EDITOR "emacsclient --no-wait"
+set USER segfault
+
