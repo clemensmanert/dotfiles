@@ -77,6 +77,9 @@ status.register("battery",
         "FULL": "BAT full",
     },)
 
+#status.register("backlight")
+
+
 # Displays whether a DHCP client is running
 # status.register("runwatch",
 #     name="DHCP",
