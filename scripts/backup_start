@@ -9,10 +9,10 @@
 # Configuration stuff
 #------------------------------------------
 # The folders to be copied into the backup.
-backup_sources=( "/home/clemens/documents" "/home/clemens/projekte" "/home/clemens/autenta" "/home/clemens/spielwiesen")
+backup_sources=( "/home/clemens/documents" "/home/clemens/projekte" "/home/clemens/autenta.org" "/home/clemens/spielwiesen" "/home/clemens/keypass.kdb")
 
 # Where to copy the folders for backup.
-backup_destination="/media/clemens/backup/backups"
+backup_destination="/home/clemens/backups/drive_int"
 
 # Name of the folder of each backup inside the backup location.
 backup_folder_name=$(date +%F-%T)

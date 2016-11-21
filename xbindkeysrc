@@ -11,30 +11,35 @@
   m:0x0 + c:121
 
 # set display brightness
-"xbacklight -dec 10; pkill -USR1 -f i3pystatus"
+"xbacklight -dec 10"
   m:0x0 + c:232
-"xbacklight -inc 10; pkill -USR1 -f i3pystatus"
+"xbacklight -inc 10" 
   m:0x0 + c:233
 
 # set display brightness
-"xbacklight -dec 1; pkill -USR1 -f i3pystatus"
+"xbacklight -dec 1"
   m:0x1 + c:232
-"xbacklight -inc 1; pkill -USR1 -f i3pystatus"
+"xbacklight -inc 1"
   m:0x1 + c:233
+
+"sflock"
+  Mod4 + a
 
 "dmenu_run"
   Mod4 + c
 
+"tapetenwechsel passmenu"
+  Mod4 + k
 
 # opens a pdf
-"zathura $(locate "*.pdf" | dmenu -l 100 -i)"
-  Mod4 + d
+"locate "*.pdf" | tapetenwechsel dmenu -i -l 50 | xargs -r zathura"
+  Mod4 + s
 
 # chose song and play
-"set -o pipefail; mpc search title "" | dmenu -i -l 100 | mpc insert && mpc next;"
+"set -o pipefail; mpc search title "" | dmenu -i -l 50 | mpc insert && mpc next;"
   Shift + Mod4 + x
 
-"set -o pipefail; mpc search title "" | dmenu -i -l 100 | mpc add;"
+"set -o pipefail; mpc search title "" |  dmenu -i -l 50 | mpc add;"
   Mod4 + x 
 
 # multimediakeys                                                                                                      

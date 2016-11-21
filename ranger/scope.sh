@@ -43,6 +43,7 @@ trim() { head -n "$maxln"; }
 highlight() { command highlight "$@"; test $? = 0 -o $? = 141; }
 
 
+
 case "$extension" in
     # Archive extensions:
     7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
@@ -73,7 +74,7 @@ case "$mimetype" in
     text/* | */xml)
         # try highlight --out-format=ansi "$path" && { dump | trim; exit 5; } || exit 2;;
         try highlight --out-format=ansi -i "$path" && { dump | trim; exit 5; } 
-        # try /home/sflip/src/godlygeek/vim-files/macros/vimcat.sh "$path" && { dump | trim; exit 5; } 
+
         try cat "$path" && { dump | trim | fmt -s -w $width; exit 5; }
         exit 2;;
     # Ascii-previews of images:

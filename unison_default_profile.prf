@@ -1,14 +1,24 @@
 # Roots
 root = /home/segfault
-root = ssh://192.168.0.2//home/segfault
+#root = ssh://192.168.0.2//home/segfault
+root = ssh://192.168.1.3//home/segfault
 
 # Paths to synchronize
 path = spielwiesen
-path = music
+
+path = .wine
+path = games
+path = audio
 path = projekte
-path = keepass.kdb
+#path = keepass.kdb
 path = autenta.org
 path = documents
+#path = .config/evolution
+#path = .mozilla/firefox/
+path = blog
+path = .password-store
+path = .gnupg
+#path = .ssh
 
 # Ignore Emacs package manager files
 ignore = Path projekte/dotfiles/emacs/elpa/*
@@ -16,9 +26,21 @@ ignore = Path projekte/dotfiles/emacs/games/*
 ignore = Path projekte/dotfiles/emacs/url/*
 ignore = Name projekte/dotfiles/emacs/ido.last
 ignore = Path projekte/dotfiles/i3/i3pystatus.config
+ignore = Path projekte/dotfiles/emacs/recentf
+ignore = Path projekte/dotfiles/mpdconf
+ignore = Path projekte/dotfiles/ranger/bookmarks
+ignore = Path projekte/dotfiles/unison_default_profile.prf
+ignore = Path .wine
+
 
 # Use this command for displaying diffs
 diff = meld
 
 # Do not ask for permission if changes are not in conflict
 auto = true
+
+# Backusp
+backuplocation = local
+backup = Name *
+
+ignore = Path {.config/evolution/.running}

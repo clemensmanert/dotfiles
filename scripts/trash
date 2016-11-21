@@ -6,8 +6,9 @@ do
     then
 	echo "Error: File or directory '$PWD/$i' does not exist!";
     else
-	mkdir -p ~/.trash/$PWD/$(dirname $i)
-	mv $i ~/.trash/$PWD/$i
+	dn=$(dirname "$i")
+	mkdir -p "~/.trash/$PWD/$dn"
+	mv "$i" "~/.trash/$PWD/$i"
     fi
 done;
 
