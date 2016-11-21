@@ -1,93 +1,51 @@
-;; This file contains all the used modes, how they get loaded and its
-;; configurations.
-;; Author: Clemens Manert (Clemens@Manert.de)
+; List of packages, which should always be installed
+(setq package-list '(cmake-mode company-c-headers ggtags guide-key helm-purpose
+                     helm-themes highlight-parentheses spaceline tao-theme
+                     unison-mode visual-regexp yaml-mode flycheck which-key yasnippet
+                    ))
 
-;; All the packages, I want to have installed.
-(setq package-list '(rainbow-delimiters
-		     helm
-		     minimap
-		     visual-regexp		     
-		     highlight-tail
-		     powerline
-		     afternoon-theme
-		     naquadah-theme
-		     tango-2
-		     moe-theme
-		     linum-relative
-		     auto-complete
-		     guide-key))
+; Repositories
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
-;; Package Repositories
-(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
-			 ("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")))
 
-;; Activate all the packages (in particular autoloads)
+; Activate all the packages
 (package-initialize)
-;;(package-refresh-contents) 
 
-;; Install the missing packages
-;;(dolist (package package-list)
-;; (unless (package-installed-p package)
-;;        (package-install package)))
+; Fetch the list of packages available 
+(unless package-archive-contents
+  (package-refresh-contents))
 
-;; Show matching parantheses and stuff in fancy colors.
-(rainbow-delimiters-mode t)
+; Install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+     (package-install package)))
 
-;; Helps finding emacs commands while using M-x.
-(helm-mode t)
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
 
-;; snippets
-(yas-global-mode t)
+;; hide distracting gui components
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
 
-;; A line at the end of each frame, which holds some use full
-;; information about the current shown buffer.
-(require 'powerline)
+(global-company-mode t)
+(global-flycheck-mode t)
+(global-highlight-parentheses-mode t)
+(global-hl-line-mode t)
+(global-linum-mode t)
+(global-whitespace-mode t)
 
-;; A fancy minimap at the side of the frame, which can be used to
-;; navigate through the text. Show it at the right side of a frame.
-(setq minimap-window-location 'right)
+(helm-mode t)              ;; Better ui
+(recentf-mode t)           ;; Keep track of recent files
+(which-key-mode t)         ;; Automatically show hotkeys
+(yas-global-mode t)        ;; Snippets
 
-;; Leaves a fancy tail behind the cursor -- pretty impressive
-(require 'highlight-tail)
-(highlight-tail-mode t)
+(semantic-mode t)
+;; Shows a summary at the bottom i.e. protype
+(global-semantic-idle-summary-mode t)
 
-;; Show the line number relative 
-(require 'linum-relative)
+;; Shows the context in the headline
+(global-semantic-stickyfunc-mode t)
+(global-semantic-idle-local-symbol-highlight-mode t)
 
-;; Searches for equal stirngs while typing in the whole buffer.
-(auto-complete-mode t)
-
-;; Auto Complete for emacs commands
-(ido-mode t)
-
-;; Auto complete for emacs hotkeys
-(setq guide-key/guide-key-sequence 't)
-(guide-key-mode t)  
-
-;; Show the recent openet files in emacs
-(require 'recentf)
-(recentf-mode t)
-
-;; Use mini-buffer history over the sessions.
-(savehist-mode)
-
-;; Minor Modes for JS
-(add-hook 'js3-mode-hook
-	  (lambda ()
-	    (tern-mode t)
-	    (tern-ac-setup)
-	    (auto-fill-mode t)
-	    ))
-
-(linum-mode t)
-(auto-complete-mode t)
-(auto-highlight-symbol-mode t)	    
-
-;; Minor Modes for Programming
-(add-hook 'c-mode-hook 
-	  (lambda () 
-	    (auto-highlight-symbol-mode t)	    
-	    )
-	  )
