@@ -11,7 +11,7 @@
 # file:// protocol) or streaming files over an accepted protocol.
 #
 #music_directory		"/var/lib/mpd/music"
-music_directory		"/home/clemens/music"
+music_directory		"~/audio"
 #
 # This setting sets the MPD internal playlist directory. The purpose of this
 # directory is storage for playlists created by MPD. The server will use 
@@ -20,7 +20,7 @@ music_directory		"/home/clemens/music"
 #
 # playlist_directory      "/var/lib/mpd/playlists"
 # playlist_directory		"~/.mpd/playlists"
-playlist_directory		"~/music/playlists"
+playlist_directory		"~/audio/music/playlists"
 #
 # This setting sets the location of the MPD database. This file is used to
 # load the database at server start up and store the database while the 
@@ -213,6 +213,14 @@ input {
 #
 # An example of an ALSA output:
 #
+
+audio_output {
+        type                    "fifo"
+        name                    "my_fifo"
+        path                    "/tmp/mpd.fifo"
+	format                  "44100:16:2"
+} 
+
 # audio_output {
 # 	type		"alsa"
 # 	name		"My ALSA Device"
@@ -388,13 +396,13 @@ audio_output {
 # this may have undesired effects. Don't change this if you don't know what you
 # are doing.
 #
-#audio_buffer_size		"2048"
+audio_buffer_size		"2048"
 #
 # This setting controls the percentage of the buffer which is filled before 
 # beginning to play. Increasing this reduces the chance of audio file skipping, 
 # at the cost of increased time prior to audio playback.
 #
-#buffer_before_play		"10%"
+buffer_before_play		"10%"
 #
 ###############################################################################
 
@@ -457,6 +465,11 @@ id3v1_encoding			"UTF-8"
 #
 ###############################################################################
 
+
+decoder {
+plugin "ffmpeg"
+enabled "yes"
+}
 
 # SIDPlay decoder #############################################################
 #
