@@ -1,40 +1,38 @@
 ; List of packages, which should always be installed
 (setq package-list '(cmake-mode company-c-headers ggtags guide-key helm-purpose
                      helm-themes highlight-parentheses spaceline tao-theme
-                     unison-mode visual-regexp yaml-mode flycheck which-key yasnippet
+                     unison-mode visual-regexp yaml-mode flycheck which-key
+                     yasnippet git-gutter
                     ))
 
-; Repositories
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-
 
 ; Activate all the packages
 (package-initialize)
 
-; Fetch the list of packages available 
+; Fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
 ; Install the missing packages
 (dolist (package package-list)
   (unless (package-installed-p package)
-     (package-install package)))
+  (package-install package)))
 
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
-
-;; hide distracting gui components
+;; Hide distracting gui components
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 
-(global-company-mode t)
-(global-flycheck-mode t)
-(global-highlight-parentheses-mode t)
-(global-hl-line-mode t)
-(global-linum-mode t)
-(global-whitespace-mode t)
+(global-highlight-parentheses-mode t) ;; Highlight encloseing parentheses
+(global-company-mode t)    ;; Autocompletion
+(global-flycheck-mode t)   ;; Try Bildung projects.
+(global-hl-line-mode t)    ;; Highlight the current line
+(global-linum-mode t)      ;; Show line number everywhere
+(global-whitespace-mode t) ;; Highlight tabs, (trailing) spaces and long lines
+(global-git-gutter-mode t) ;; Mark lines, which differ from last commit.
 
 (helm-mode t)              ;; Better ui
 (recentf-mode t)           ;; Keep track of recent files
