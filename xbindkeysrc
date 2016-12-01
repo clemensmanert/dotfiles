@@ -31,6 +31,9 @@
 "tapetenwechsel passmenu"
   Mod4 + k
 
+"clipmenu"
+  Mod4 + v
+
 # opens a pdf
 "locate "*.pdf" | tapetenwechsel dmenu -i -l 50 | xargs -r zathura"
   Mod4 + s
