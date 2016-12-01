@@ -13,7 +13,7 @@
 # set display brightness
 "xbacklight -dec 10"
   m:0x0 + c:232
-"xbacklight -inc 10" 
+"xbacklight -inc 10"
   m:0x0 + c:233
 
 # set display brightness
@@ -43,9 +43,9 @@
   Shift + Mod4 + x
 
 "set -o pipefail; mpc search title "" |  dmenu -i -l 50 | mpc add;"
-  Mod4 + x 
+  Mod4 + x
 
-# multimediakeys                                                                                                      
+# multimediakeys
 "mpc toggle; pkill -USR1 -f i3pystatus"
   XF86AudioPlay
 "mpc stop; pkill -USR1 -f i3pystatus"
@@ -57,7 +57,7 @@
 "mpc prev; pkill -USR1 -f i3pystatus"
   XF86AudioPrev
 
-# keyboard layout                                                                                                     
+# keyboard layout
 "setxkbmap us; pkill -USR1 -f i3pystatus"
   Mod4 + e
 "setxkbmap de; pkill -USR1 -f i3pystatus"
