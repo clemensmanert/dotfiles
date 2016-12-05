@@ -1,0 +1,14 @@
+#!/bin/bash
+
+programm=$( { tac ~/.dmenu_run_history; dmenu_path; }  | sort | uniq -c | sort -r | cut -d' ' -f8- | dmenu -l 44)
+
+if [ 1 -eq $? ]
+then
+  exit 1
+fi
+
+echo "$programm" >> ~/.dmenu_run_history
+
+$("${programm}")
+
+
