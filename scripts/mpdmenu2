@@ -1,0 +1,19 @@
+#!/bin/sh
+chosen=$(find  ~/audio -printf '%A@	%P\n' | sort -k 1nr | awk -F"	" '{print $2}' |dmenu -i -l 50)
+
+# Nothing was selected results in a exit status of 1
+if [ 1 -eq $? ]
+then
+  exit 1
+fi
+
+# If just one song was selected these works
+mpc insert "${chosen}"
+
+# If a dir was selected mpc insert failed
+if [ 0 -eq ${?} ]
+then
+  find ~/audio/"${chosen}" -type f | cut -d'/' -f4-  | mpc insert
+fi
+
+mpc next
