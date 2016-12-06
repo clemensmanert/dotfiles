@@ -1,6 +1,6 @@
 #!/bin/bash
 
-programm=$( { tac ~/.dmenu_run_history; dmenu_path; }  | sort | uniq -c | sort -r | cut -d' ' -f8- | dmenu -l 44)
+programm=$( { tac ~/.dmenu_run_history; dmenu_path; }  | sort | uniq -c | sort -r | awk '{$1=$1};1' | cut -d' ' -f2-  | dmenu -l 44)
 
 if [ 1 -eq $? ]
 then
@@ -9,6 +9,8 @@ fi
 
 echo "$programm" >> ~/.dmenu_run_history
 
-$("${programm}")
+programm_with_quoted_args="$(printf "%q" "$programm")"
+
+$(${programm_with_quoted_args})
 
 
