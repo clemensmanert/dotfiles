@@ -6,9 +6,9 @@ function ev --description 'Tell a running emacs deamon to view the specified fil
   test -z "$argv"; and return
 
   for i in $argv
-      if test -f $i 
+      if test -f $i
       	 emacsclient --no-wait $i
       end
-  end 
+  end
 end
 

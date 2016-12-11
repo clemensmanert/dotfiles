@@ -1,0 +1,12 @@
+#!/bin/sh
+chosen=$(find ~/documents -name "*.pdf" -printf '%A@	%P\n' | sort -k 1nr | awk -F"	" '{print $2}' |dmenu -i -l 50)
+
+# Nothing was selected results in a exit status of 1
+if [ 1 -eq $? ]
+then
+  exit 1
+fi
+
+echo $chosen
+
+zathura ~/documents/"$chosen"

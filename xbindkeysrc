@@ -25,7 +25,7 @@
 "sflock"
   Mod4 + a
 
-"dmenu_run"
+"dmenu_run_history"
   Mod4 + c
 
 "tapetenwechsel passmenu"
@@ -35,11 +35,11 @@
   Mod4 + v
 
 # opens a pdf
-"locate "*.pdf" | tapetenwechsel dmenu -i -l 50 | xargs -r zathura"
-  Mod4 + s
+"pdfmenu"
+Mod4 + s
 
 # chose song and play
-"set -o pipefail; mpc search title "" | dmenu -i -l 50 | mpc insert && mpc next;"
+"mpdmenu2"
   Shift + Mod4 + x
 
 "set -o pipefail; mpc search title "" |  dmenu -i -l 50 | mpc add;"

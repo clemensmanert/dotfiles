@@ -2,11 +2,11 @@
 root = /home/segfault
 #root = ssh://192.168.0.2//home/segfault
 root = ssh://192.168.1.3//home/segfault
+#root = ssh://192.168.1.59//home/segfault
 
 # Paths to synchronize
 path = spielwiesen
 
-path = .wine
 path = games
 path = audio
 path = projekte
