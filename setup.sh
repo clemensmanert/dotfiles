@@ -39,7 +39,7 @@ ln -s $PWD/vimpcrc ~/.vimpcrc
 ln -s $PWD/xbindkeysrc ~/.xbindkeysrc
 
 # xinitrc
-ln -s ~/projekte/dotfiles/xinitrc .xinitrc
+ln -s ~/projekte/dotfiles/xinitrc xinitrc
 
 # zathura
 ln -s $PWD/zathura ~/.zathura
