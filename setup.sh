@@ -38,5 +38,8 @@ ln -s $PWD/vimpcrc ~/.vimpcrc
 # xbinkeys
 ln -s $PWD/xbindkeysrc ~/.xbindkeysrc
 
+# xinitrc
+ln -s ~/projekte/dotfiles/xinitrc .xinitrc
+
 # zathura
 ln -s $PWD/zathura ~/.zathura
