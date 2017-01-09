@@ -9,7 +9,7 @@ ln -s $PWD/awesome ~/.config/awesome
 ln -s $PWD/compton.conf  ~/.config/compton.conf
 
 #conkey
-ln -s $PWD/conkyrc_$HOSTNAME
+ln -s $PWD/conkyrc_$HOSTNAME ~/.conkyrc
 
 # emacs
 ln -s $PWD/emacs ~/.emacs.d
@@ -29,6 +29,9 @@ ln -s $PWD/mpdconf ~/.mpdconf
 # ranger
 ln -s $PWD/ranger ~/.config/ranger
 
+# systemd
+ln -s $PWD/systemd ~/.config/systemd
+
 # tmux
 ln -s $PWD/tmux/tmux.conf   ~/.tmux.conf
 
@@ -39,7 +42,7 @@ ln -s $PWD/vimpcrc ~/.vimpcrc
 ln -s $PWD/xbindkeysrc ~/.xbindkeysrc
 
 # xinitrc
-ln -s $PWD/xinitrc ~/xinitrc
+ln -s $PWD/xinitrc ~/.xinitrc
 
 # zathura
 ln -s $PWD/zathura ~/.zathura
