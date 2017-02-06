@@ -1,49 +1,57 @@
+pwd=$(shell pwd)
+
 refind:
 	cp refind.conf /boot/EFI/BOOT/refind.conf
 
-apps: awesome compton conkey emacs fish i3 khal mpd ranger systemd tmux vimprc xbinkeys xinitrc zathura
+pacman_kernel_update_hook:
+	ln -s ${pwd}/pacman_hooks/ /etc/pacman.d/hooks.d
+
+apps: awesome compton conkey emacs fish i3 khal mpd ranger systemd tmux unison vimprc xbinkeys xinitrc zathura
 
 awesome:
-	ln -s awesome ~/.config/awesome
+	ln -s ${pwd}/awesome ~/.config/awesome
 
 compton:
-	ln -s compton.conf  ~/.config/compton.conf
+	ln -s ${pwd}/compton.conf  ~/.config/compton.conf
 
 conkey:
-	ln -s conkyrc_$HOSTNAME ~/.conkyrc
+	ln -s ${pwd}/conkyrc_$HOSTNAME ~/.conkyrc
 
 emacs:
-	ln -s emacs ~/.emacs.d
+	ln -s ${pwd}/emacs ~/.emacs.d
 
 fish:
-	ln -s fish ~/.config/fish
+	ln -s ${pwd}/fish ~/.config/fish
 
 i3:
-	ln -s i3 ~/.i3
+	ln -s ${pwd}/i3 ~/.i3
 
 khal:
-	ln -s khal ~/.khal
+	ln -s ${pwd}/khal ~/.khal
 
 mpd:
-	ln -s mpdconf ~/.mpdconf
+	ln -s ${pwd}/mpdconf ~/.mpdconf
 
 ranger:
-	ln -s ranger ~/.config/ranger
+	ln -s ${pwd}/ranger ~/.config/ranger
 
 systemd:
-	ln -s systemd ~/.config/systemd
+	ln -s ${pwd}/systemd ~/.config/systemd
 
 tmux:
-	ln -s tmux/tmux.conf   ~/.tmux.conf
+	ln -s ${pwd}/tmux/tmux.conf   ~/.tmux.conf
+
+unison:
+	ln -s ${pwd}/unison ~/.unison
 
 vimprc:
-	ln -s vimpcrc ~/.vimpcrc
+	ln -s ${pwd}/vimpcrc ~/.vimpcrc
 
 xbinkeys:
-	ln -s xbindkeysrc ~/.xbindkeysrc
+	ln -s ${pwd}/xbindkeysrc ~/.xbindkeysrc
 
 xinitrc:
-	ln -s xinitrc ~/.xinitrc
+	ln -s ${pwd}/xinitrc ~/.xinitrc
 
 zathura:
-	ln -s zathura ~/.zathura
+	ln -s ${pwd}/zathura ~/.zathura
