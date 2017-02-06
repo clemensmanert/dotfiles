@@ -1,49 +1,49 @@
 refind:
-	cp $PWD/refind.conf /boot/EFI/refind/refind.conf
+	cp refind.conf /boot/EFI/BOOT/refind.conf
 
 apps: awesome compton conkey emacs fish i3 khal mpd ranger systemd tmux vimprc xbinkeys xinitrc zathura
 
 awesome:
-	ln -s $PWD/awesome ~/.config/awesome
+	ln -s awesome ~/.config/awesome
 
 compton:
-	ln -s $PWD/compton.conf  ~/.config/compton.conf
+	ln -s compton.conf  ~/.config/compton.conf
 
 conkey:
-	ln -s $PWD/conkyrc_$HOSTNAME ~/.conkyrc
+	ln -s conkyrc_$HOSTNAME ~/.conkyrc
 
 emacs:
-	ln -s $PWD/emacs ~/.emacs.d
+	ln -s emacs ~/.emacs.d
 
 fish:
-	ln -s $PWD/fish ~/.config/fish
+	ln -s fish ~/.config/fish
 
 i3:
-	ln -s $PWD/i3 ~/.i3
+	ln -s i3 ~/.i3
 
 khal:
-	ln -s $PWD/khal ~/.khal
+	ln -s khal ~/.khal
 
 mpd:
-	ln -s $PWD/mpdconf ~/.mpdconf
+	ln -s mpdconf ~/.mpdconf
 
 ranger:
-	ln -s $PWD/ranger ~/.config/ranger
+	ln -s ranger ~/.config/ranger
 
 systemd:
-	ln -s $PWD/systemd ~/.config/systemd
+	ln -s systemd ~/.config/systemd
 
 tmux:
-	ln -s $PWD/tmux/tmux.conf   ~/.tmux.conf
+	ln -s tmux/tmux.conf   ~/.tmux.conf
 
 vimprc:
-	ln -s $PWD/vimpcrc ~/.vimpcrc
+	ln -s vimpcrc ~/.vimpcrc
 
 xbinkeys:
-	ln -s $PWD/xbindkeysrc ~/.xbindkeysrc
+	ln -s xbindkeysrc ~/.xbindkeysrc
 
 xinitrc:
-	ln -s $PWD/xinitrc ~/.xinitrc
+	ln -s xinitrc ~/.xinitrc
 
 zathura:
-	ln -s $PWD/zathura ~/.zathura
+	ln -s zathura ~/.zathura
