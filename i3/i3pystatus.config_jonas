@@ -12,71 +12,80 @@ wifi = "wlp5s0",
 eth  = "enp3s0",
 
 # Clock
-status.register("clock",
-    format="%a %-d %b %X",)
+status.register(
+    "clock",
+    format="%a %-d %b %X"
+)
 
 # Load
 status.register("load")
 
 # Keyboard layout
 status.register("shell",
-                command="setxkbmap -query | grep layout  | cut -c 13-",)
+                command = "setxkbmap -query | grep layout  | cut -c 13-"
+)
 
 # Battery
-status.register("battery",
+status.register(
+    "battery",
     format="Battery {status}: {consumption:2.1f}W {percentage:.1f}% "
       + "{remaining:%E%hh:%Mm}",
     alert=True, alert_percentage=5, status={
-        "DIS": "discharging", "CHR": "charging", "FULL": "full", },)
+        "DIS": "discharging", "CHR": "charging", "FULL": "full", }
+)
 
 # Eth ip
 status.register("network",
-    interface=eth,
-    format_up="{v4cidr}",
-    format_down=str(eth) + ": unplugged",
-    color_up=color_bright,
-    color_down=color_dark
+    interface   = eth,
+    format_up   = "{v4cidr}",
+    format_down = str(eth) + ": unplugged",
+    color_up    = color_bright,
+    color_down  = color_dark
 )
 
 # Wifi essid
 status.register("network",
-    interface=wifi,
-    format_up="Essid: {essid} {quality:3.0f}%",
-    format_down="",
-    color_up=color_bright,
-    color_down=color_dark
+    interface   = wifi,
+    format_up   = "Essid: {essid} {quality:3.0f}%",
+    format_down = "",
+    color_up    = color_bright,
+    color_down  = color_dark
 )
 
 # Wifi ip
 status.register("network",
-    interface=wifi,
-    format_up=str(wifi)+": {v4cidr}",
-    format_down=str(wifi)+" unconnected",
-                color_up=color_bright,
-                color_down=color_dark
+    interface   = wifi,
+    format_up   = str(wifi)+": {v4cidr}",
+    format_down = str(wifi)+" unconnected",
+    color_up    = color_bright,
+    color_down  = color_dark
 
 )
 
 # Free disk space
 status.register("disk",
-                path="/",
-                format="Hdd: {avail}G free",
+                path   = "/",
+                format = "Hdd: {avail}G free",
 )
 
 # Volume
-status.register("pulseaudio",
-format="Volume {volume}",
-color_muted=color_dark)
+status.register(
+    "pulseaudio",
+    format      = "Volume {volume}",
+    color_muted = color_dark
+)
 
 # Mpd
-status.register("mpd",
-                host="localhost",
-                port="6600",
-                format="{status} {artist} on {album} with {title}",
-                status={
-                    "pause": "▷",
-                    "play": "▶",
-                    "stop": "◾",
-                },)
+status.register(
+    "mpd",
+    host   = "localhost",
+    port   = "6600",
+    format = "{status} {artist} on {album} with {title}",
+    status = {
+        "pause": "▷",
+        "play": "▶",
+        "stop": "◾",
+    }
+)
 
 status.run()
