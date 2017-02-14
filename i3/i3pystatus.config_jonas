@@ -7,6 +7,8 @@ status = Status(standalone=True)
 color_dark          = "#9090aa"
 color_bright        = "#eeeeef"
 
+networkmanager_command = "connman-gtk"
+
 # Network adaptors
 wifi = "wlp5s0"
 eth  = "enp3s0"
@@ -27,36 +29,39 @@ status.register("shell",
 
 # Eth ip
 status.register("network",
-    interface   = eth,
-    format_up   = eth + ": {v4cidr}",
-    format_down = eth + ": unplugged",
-    color_up    = color_bright,
-    color_down  = color_dark
+    interface    = eth,
+    format_up    = eth + ": {v4cidr}",
+    format_down  = eth + ": unplugged",
+    color_up     = color_bright,
+    color_down   = color_dark,
+    on_leftclick = networkmanager_command
 )
 
 # Wifi essid
 status.register("network",
-    interface   = wifi,
-    format_up   = "Essid: {essid} {quality:3.0f}%",
-    format_down = "",
-    color_up    = color_bright,
-    color_down  = color_dark
+    interface    = wifi,
+    format_up    = "Essid: {essid} {quality:3.0f}%",
+    format_down  = "",
+    color_up     = color_bright,
+    color_down   = color_dark,
+    on_leftclick = networkmanager_command
 )
 
 # Wifi ip
 status.register("network",
-    interface   = wifi,
-    format_up   = wifi+": {v4cidr}",
-    format_down = wifi+" unconnected",
-    color_up    = color_bright,
-    color_down  = color_dark
-
+    interface    = wifi,
+    format_up    = wifi+": {v4cidr}",
+    format_down  = wifi+" unconnected",
+    color_up     = color_bright,
+    color_down   = color_dark,
+    on_leftclick = networkmanager_command
 )
 
 # Free disk space
 status.register("disk",
-                path   = "/",
-                format = "Hdd: {avail}G free",
+                path         = "/",
+                format       = "Hdd: {avail}G free",
+                on_leftclick = "mate-disk-usage-analyzer"
 )
 
 # Volume
