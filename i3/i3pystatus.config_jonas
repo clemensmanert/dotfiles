@@ -8,8 +8,8 @@ color_dark          = "#9090aa"
 color_bright        = "#eeeeef"
 
 # Network adaptors
-wifi = "wlp5s0",
-eth  = "enp3s0",
+wifi = "wlp5s0"
+eth  = "enp3s0"
 
 # Clock
 status.register(
@@ -37,7 +37,7 @@ status.register(
 # Eth ip
 status.register("network",
     interface   = eth,
-    format_up   = "{v4cidr}",
+    format_up   = eth + ": {v4cidr}",
     format_down = str(eth) + ": unplugged",
     color_up    = color_bright,
     color_down  = color_dark
