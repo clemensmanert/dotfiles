@@ -23,8 +23,10 @@ status.register(
 status.register("load")
 
 # Keyboard layout
-status.register("shell",
-                command = "setxkbmap -query | grep layout  | cut -c 13-"
+status.register("xkblayout",
+                format  = "Layout: {name}",
+                layouts = ["de", "us"],
+                uppercase = False
 )
 
 # Eth ip
