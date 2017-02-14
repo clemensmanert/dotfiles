@@ -25,15 +25,6 @@ status.register("shell",
                 command = "setxkbmap -query | grep layout  | cut -c 13-"
 )
 
-# Battery
-status.register(
-    "battery",
-    format="Battery {status}: {consumption:2.1f}W {percentage:.1f}% "
-      + "{remaining:%E%hh:%Mm}",
-    alert=True, alert_percentage=5, status={
-        "DIS": "discharging", "CHR": "charging", "FULL": "full", }
-)
-
 # Eth ip
 status.register("network",
     interface   = eth,
