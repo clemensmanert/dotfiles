@@ -29,7 +29,7 @@ status.register("shell",
 status.register("network",
     interface   = eth,
     format_up   = eth + ": {v4cidr}",
-    format_down = str(eth) + ": unplugged",
+    format_down = eth + ": unplugged",
     color_up    = color_bright,
     color_down  = color_dark
 )
@@ -46,8 +46,8 @@ status.register("network",
 # Wifi ip
 status.register("network",
     interface   = wifi,
-    format_up   = str(wifi)+": {v4cidr}",
-    format_down = str(wifi)+" unconnected",
+    format_up   = wifi+": {v4cidr}",
+    format_down = wifi+" unconnected",
     color_up    = color_bright,
     color_down  = color_dark
 
