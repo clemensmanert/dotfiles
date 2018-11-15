@@ -8,8 +8,42 @@
 ;; make company mode support camel case
 (setq company-dabbrev-downcase nil)
 
-(powerline-default-theme)
-
 ;; Visualize tabs, lines longer than 80 chars and trailing spaces.
 (setq whitespace-style '(face tabs lines-tail trailing))
 
+;; Show last 200 files in recent file list
+(setq recentf-max-menu-items 200)
+
+;; Use spaces instead of tabs while align-regexp
+(defadvice align-regexp (around align-regexp-with-spaces activate)
+  (let ((indent-tabs-mode nil)) ad-do-it))
+
+(setq langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
+
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
+(setq powerline-utf-8-separator-left        #xe0b0
+      powerline-utf-8-separator-right       #xe0b2
+      airline-utf-glyph-separator-left      #xe0b0
+      airline-utf-glyph-separator-right     #xe0b2
+      airline-utf-glyph-subseparator-left   #xe0b1
+      airline-utf-glyph-subseparator-right  #xe0b3
+      airline-utf-glyph-branch              #xe0a0
+      airline-utf-glyph-readonly            #xe0a2
+      airline-utf-glyph-linenumber          #xe0a1)
+
+
+;; colorize output of compile buffer; prefents from printing escape sequences
+(require 'ansi-color)
+(defun colorize-compilation-buffer ()
+  (toggle-read-only)
+  (ansi-color-apply-on-region compilation-filter-start (point))
+  (toggle-read-only))
+(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+
+
+(put 'flycheck-clang-args 'safe-local-variable (lambda (xx) t))
+
+
+(setq gdb-show-main t) ;; show gdb many windows when invoking gdb

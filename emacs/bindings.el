@@ -1,11 +1,15 @@
-;; Contains the global key bindings used in my emacs configuration
-;; Author: Clemens@Manert.de
+;;; Contains the global key bindings used in my emacs configuration.
+;;; Author: Clemens@Manert.de
+
 
 ;; Lisp
 (global-set-key (kbd "C-x e") 'eval-buffer)
 
  ;; auto complete current word
 (global-set-key [C-return] 'company-complete)
+(global-set-key (kbd "C-c c") 'company-complete)
+(global-set-key (kbd "C-c z") 'company-yasnippet)
+(global-set-key (kbd "C-c y") 'company-yasnippet)
 
 ;; Window control
 (global-set-key (kbd "M-3") 'split-window-horizontally)
@@ -39,6 +43,8 @@
 ;; unset
 (global-unset-key (kbd "C-z"))
 
+(global-set-key (kbd "C-.") 'find-tag)
+
 ;; Helm
 (global-set-key (kbd "M-x") 'helm-M-x)
 
@@ -48,13 +54,19 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
-(global-set-key (kbd "C-c C-f") 'helm-locate)
+(global-set-key (kbd "C-c f") 'helm-locate)
+
+(global-set-key (kbd "C-s") 'helm-occur)
 
 (global-set-key (kbd "C-x C-g") 'helm-imenu)
 (global-set-key (kbd "M-RET") 'helm-company)
 
+(global-set-key (kbd "C-c s") 'dired-sidebar-toggle-with-current-directory)
+
 ;; uncomment-region
 (global-set-key (kbd "C-S-c") 'uncomment-region)
 (global-set-key (kbd "<f5>") 'compile)
+(global-set-key (kbd "C-c c") 'recompile)
 (global-set-key (kbd "M-.") 'semantic-ia-fast-jump)
 
+(global-set-key (kbd "M-$") 'helm-flyspell-correct)

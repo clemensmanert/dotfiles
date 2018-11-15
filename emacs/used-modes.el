@@ -1,9 +1,11 @@
-; List of packages, which should always be installed
-(setq package-list '(cmake-mode company-c-headers ggtags guide-key helm-purpose
+	; List of packages, which should always be installed
+(setq package-list '(cmake-mode  ggtags guide-key helm-purpose company-c-headers
                      helm-themes highlight-parentheses spaceline tao-theme
                      unison-mode visual-regexp yaml-mode flycheck which-key
-                     yasnippet git-gutter
-                    ))
+                     yasnippet git-gutter auto-highlight-symbol airline-themes
+										 nix-mode nixos-options company-nixos-options nix-sandbox
+										 spacemacs-theme lua-mode irony company-irony ansi-color
+		     ))
 
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -30,7 +32,7 @@
 (global-company-mode t)    ;; Autocompletion
 (global-flycheck-mode t)   ;; Try Bildung projects.
 (global-hl-line-mode t)    ;; Highlight the current line
-(global-linum-mode t)      ;; Show line number everywhere
+;;(global-linum-mode t)      ;; Show line number everywhere
 (global-whitespace-mode t) ;; Highlight tabs, (trailing) spaces and long lines
 (global-git-gutter-mode t) ;; Mark lines, which differ from last commit.
 
@@ -39,6 +41,10 @@
 (which-key-mode t)         ;; Automatically show hotkeys
 (yas-global-mode t)        ;; Snippets
 
+(global-auto-highlight-symbol-mode t)
+
+(require 'airline-themes)
+
 (semantic-mode t)
 ;; Shows a summary at the bottom i.e. protype
 (global-semantic-idle-summary-mode t)
@@ -46,4 +52,17 @@
 ;; Shows the context in the headline
 (global-semantic-stickyfunc-mode t)
 (global-semantic-idle-local-symbol-highlight-mode t)
+
+
+(dolist (hook '(text-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode t))))
+
+(dolist (hook '(org-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode t))))
+
+(dolist (hook '(org-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode t))))
+
+(dolist (hook '(LaTeX-mode-hook))
+      (add-hook hook (lambda () (flyspell-mode t))))
 
