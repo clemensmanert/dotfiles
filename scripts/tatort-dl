@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # tatort-dl - download movies from ARDmediathek using rtmpdump
 # Copyright (C) 2010-2012 Robin Gareus <robin@gareus.org>
 #

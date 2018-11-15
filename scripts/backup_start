@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##-----------------------------------------------------
 ## Autor: Clemens Manert (clemens@manert.de)

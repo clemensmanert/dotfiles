@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 programm=$( { tac ~/.dmenu_run_history; dmenu_path; }  | sort | uniq -c | sort -r | awk '{$1=$1};1' | cut -d' ' -f2-  | dmenu -l 44)
 
