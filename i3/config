@@ -1,231 +1,109 @@
 # Author: Clemens@Manert.de
 
 # Modifier key: windows/super/Mod4
-set $mod Mod4
+set $m Mod4
+
+set $terminal "terminology || urxvt || mate-terminal || gnome-terminal || xterm"
 
 # Colors
-set $focused     #729fcf
-set $normal      #434343
-set $background  #555753
-set $urgent      #ef2929
-set $text        #d3d7cf
+set $focused        #3333CC
+set $focused_border #8888FF
+set $normal         #434343
+set $background     #555753
+set $urgent         #ef2929
+set $text           #d3d7cf
 
-# Reload the configuration 
-# Or restart i3
-bindsym $mod+Shift+r mode "$reload_restart"
-set $reload_restart Want it fresh? (l) reload config, (s) restart i3
-mode "$reload_restart" {
-    bindsym l reload; mode "default"
-    bindsym s restart
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+# Restart / Reload i3 config
+bindsym $m+Shift+r restart
+bindsym $m+r reload
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:Terminus 10
-
-# Before i3 v4.8, we used to recommend this one as the default:
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-# Borders
+# No borders
 for_window [class="^.*"] border pixel 0
 
-# Colors
-#                       border   backgr       text         indicator
-client.focused          $focused $focused     $text        $focused
-client.focused_inactive $normal  $background  $text        $background
-client.unfocused        $normal  $background  $text        $background
-client.urgent           $urgent  $urgent      $background  $urgent
-client.background       $normal  $background  $focused     $background
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    status_command /home/clemens/projekte/dotfiles/i3/i3pystatus.config
-    position top
-    colors {
-        background  $background
-        statusline  $text
-        separator   $focused
-        #                   border       backgr       text
-        focused_workspace   $focused     $background  $focused 
-        active_workspace    $focused     $background  $text 
-        inactive_workspace  $background  $background  $text
-        urgent_workspace    $focused     $urgent      $background
-    }
-}
-
-# hide/show bar
-bindsym $mod+Shift+b bar mode toggle
-
-# toggle touchpad
-bindsym XF86TouchpadToggle exec --no-startup-id "~/shellscripts/xinput-toggle-enabled.sh"
+# Hide/show bar
+bindsym $m+Shift+b bar mode toggle
 
 # focus when mouse moves
 focus_follows_mouse no
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Use Mouse+$m to drag floating windows to their wanted position
+floating_modifier $m
 
-# lock/exit/suspend etc.
-bindsym XF86PowerOff mode "$mode_system"
-bindsym $mod+Escape mode "$mode_system"
-set $mode_system Want to leave?  (e) logout, (l) lock, (s) suspend, (h) hibernate, (r) reboot, (p) poweroff
-mode "$mode_system" {
-    bindsym e exit
-    bindsym l exec --no-startup-id "i3lock -t -i ~/.i3/wallpaper"; mode "default"
-    bindsym s exec --no-startup-id "i3lock -t -i ~/.i3/wallpaper; sudo pm-suspend"; mode "default"
-    bindsym h exec --no-startup-id "i3lock -t -i ~/.i3/wallpaper; sudo pm-hibernate"; mode "default"
-    bindsym r exec --no-startup-id "reboot"
-    bindsym p exec --no-startup-id "poweroff";       
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# take a screenshot
-bindsym $mod+Print exec "gnome-screenshot"
-bindsym      Print exec "gnome-screenshot"
-
-# windows always floating/fullscreen
-for_window [class="(?i)gcolor2"]        floating enable 
-for_window [class="(?i)nemo"]           floating enable 
-for_window [title="(?i)sxiv"]           fullscreen
+# Exits i3
+bindsym $m+Escape exit
 
 # start a terminal
-bindsym $mod+Shift+o      split horizontal; exec "tapetenwechsel terminal"
-bindsym $mod+o            split vertical;   exec "tapetenwechsel terminal"
-bindsym $mod+Shift+Return split horizontal; exec "tapetenwechsel terminal"
-bindsym $mod+Return       split vertical;   exec "tapetenwechsel terminal"
+bindsym $m+Shift+Return split horizontal; exec $terminal
+bindsym $m+Return       split vertical;   exec $terminal
 
-# kill focused container
-bindsym $mod+BackSpace kill
-bindsym $mod+Shift+c kill
-bindsym $mod+q kill
+# Close focused container
+bindsym $m+Shift+c kill
 
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+# Change focus
+bindsym $m+h focus left
+bindsym $m+j focus down
+bindsym $m+k focus up
+bindsym $m+l focus right
 
-# move focused container
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+# Move focused container
+bindsym $m+Shift+h move left
+bindsym $m+Shift+j move down
+bindsym $m+Shift+k move up
+bindsym $m+Shift+l move right
 
-# focus the parent/child container
-bindsym $mod+u focus parent
-bindsym $mod+Shift+u focus child
+# Enter fullscreen mode for the focused container
+bindsym $m+f fullscreen
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+# Toggle tiling/floating
+bindsym $m+Shift+a floating toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+space layout toggle
+# Change focus between tiling/floating windows
+bindsym $m+a focus mode_toggle
 
-# toggle tiling/floating
-bindsym $mod+Shift+a floating toggle
-# change focus between tiling/floating windows
-bindsym $mod+a focus mode_toggle
+# Resize container
+bindsym $m+Ctrl+h resize shrink width  1 px or 1 ppt
+bindsym $m+Ctrl+k resize grow   height 1 px or 1 ppt
+bindsym $m+Ctrl+j resize shrink height 1 px or 1 ppt
+bindsym $m+Ctrl+l resize grow   width  1 px or 1 ppt
 
-# send container to background
-bindsym $mod+Shift+z move scratchpad
+# Change border
+bindsym $m+b border toggle
 
-# and show it again
-bindsym $mod+z scratchpad show 
-
-# resize container
-bindsym $mod+r mode "resize"
-mode "resize" {
-    set $steps "3"
-    set $steps2 "30"    
-    bindsym h resize shrink width  $steps px or $steps ppt
-    bindsym k resize grow   height $steps px or $steps ppt
-    bindsym j resize shrink height $steps px or $steps ppt
-    bindsym l resize grow   width  $steps px or $steps ppt
-
-    bindsym Shift + h resize shrink width  $steps2 px or $steps ppt
-    bindsym Shift + k resize grow   height $steps2 px or $steps ppt
-    bindsym Shift + j resize shrink height $steps2 px or $steps ppt
-    bindsym Shift + l resize grow   width  $steps2 px or $steps ppt
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# change border
-bindsym $mod+b border toggle
-
-# $mod+4 two times to get back to last recently used
-workspace_auto_back_and_forth yes
-
-# open new workspace
-bindsym $mod+i exec "quickswitch -E"
-
-# rename workspace
-bindsym $mod+comma exec i3-input -F 'rename workspace to %s' -P 'rename workspace to: '
-
-# switch to a specific window or workspace
-bindsym $mod+t mode "goto"
-mode "goto" {
-   bindsym f [class="(?i)firefox"]  focus; mode "default"
-   bindsym s [class="(?i)sublime"]  focus; mode "default"
-   bindsym m workspace music; mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+# Rename workspace
+bindsym $m+comma exec i3-input -F 'rename workspace to %s' \
+-P 'rename workspace to: '
 
 # switch to another workspace
-bindsym $mod+g [urgent=latest] focus
-bindsym $mod+minus workspace back_and_forth
+bindsym $m+g [urgent=latest] focus
+bindsym $m+space workspace back_and_forth
 
-bindsym $mod+w exec "quickswitch --workspaces"
-bindsym $mod+n workspace next_on_output
-bindsym $mod+p workspace prev_on_output
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $m+n workspace next_on_output
+bindsym $m+p workspace prev_on_output
+bindsym $m+1 workspace 1
+bindsym $m+2 workspace 2
+bindsym $m+3 workspace 3
+bindsym $m+4 workspace 4
+bindsym $m+5 workspace 5
+bindsym $m+6 workspace 6
+bindsym $m+7 workspace 7
+bindsym $m+8 workspace 8
+bindsym $m+9 workspace 9
+bindsym $m+0 workspace 10
 
 # move container to specific workspace
-bindsym $mod+Shift+n move container to workspace next_on_output
-bindsym $mod+Shift+p move container to workspace prev_on_output
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $m+Shift+n move container to workspace next_on_output
+bindsym $m+Shift+p move container to workspace prev_on_output
+bindsym $m+Shift+1 move container to workspace 1
+bindsym $m+Shift+2 move container to workspace 2
+bindsym $m+Shift+3 move container to workspace 3
+bindsym $m+Shift+4 move container to workspace 4
+bindsym $m+Shift+5 move container to workspace 5
+bindsym $m+Shift+6 move container to workspace 6
+bindsym $m+Shift+7 move container to workspace 7
+bindsym $m+Shift+8 move container to workspace 8
+bindsym $m+Shift+9 move container to workspace 9
+bindsym $m+Shift+0 move container to workspace 10
 
-# move container to new workspace (tmux 'break')
-bindsym $mod+Shift+i exec "quickswitch --journey -E"
-# move container to specific workspace
-bindsym $mod+Shift+w exec "quickswitch --journey"
-bindsym $mod+Shift+numbersign move container to workspace back_and_forth
-bindsym $mod+Shift+space move container to workspace back_and_forth
+bindsym $m+Shift+numbersign move container to workspace back_and_forth
+bindsym $m+Shift+space move container to workspace back_and_forth
 
-# move container/workspace to other output
-bindsym $mod+y       move container to output right; workspace back_and_forth
-bindsym $mod+Shift+y move workspace to output right
