@@ -1,18 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-conky &
 xbindkeys &
-xrdb -merge ~/.Xresources
-tapetenwechsel connman-gtk &
 
-clipmenud &
-xfsettingsd &
-
-feh --bg-tile ~/pictures/background/greytiles.png &
-
-# Here Xfce is kept as default
+# i3 is my default wm
 session=${2:-i3}
-#session=$1
+
 case $session in
     awesome           ) exec awesome;;
     bspwm             ) exec bspwm;;
