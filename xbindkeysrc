@@ -1,68 +1,65 @@
-`# For the benefit of emacs users: -*- shell-script -*-
-###########################
-# xbindkeys configuration #
-###########################
+# Author: Clemens@Manert.de
 # Volume Control
-"pamixer -d 5; pkill -USR1 -f i3pystatus"
+"pamixer -d 5;"
   m:0x0 + c:122
-"pamixer -i 5; pkill -USR1 -f i3pystatus"
+"pamixer -i 5;"
   m:0x0 + c:123
-"pamixer -t; pkill -USR1 -f i3pystatus"
+"pamixer -t;"
   m:0x0 + c:121
 
-# set display brightness
+# Set display brightness
 "xbacklight -dec 10"
   m:0x0 + c:232
 "xbacklight -inc 10"
   m:0x0 + c:233
 
-# set display brightness
+# Set display brightness gently
 "xbacklight -dec 1"
   m:0x1 + c:232
 "xbacklight -inc 1"
   m:0x1 + c:233
 
-"sflock"
-  Mod4 + a
+"rofi -show window"
+  Mod4 + w
 
 "dmenu_run_history"
   Mod4 + c
 
-"tapetenwechsel passmenu"
+# Choose password
+"passmenu"
   Mod4 + k
 
+# Choose from clipboard history
 "clipmenu"
   Mod4 + v
 
-# opens a pdf
+# Choose and open a pdf
 "pdfmenu"
 Mod4 + s
 
-# chose song and play
-"mpdmenu2"
+# Choose song and append after current
+"mpd_menu insert"
   Shift + Mod4 + x
 
-"set -o pipefail; mpc search title "" |  dmenu -i -l 50 | mpc add;"
+# Choose song and append at the end
+"mpd_menu add"
   Mod4 + x
 
 # multimediakeys
-"mpc toggle; pkill -USR1 -f i3pystatus"
+"source ~/.mpd_current; mpc toggle"
   XF86AudioPlay
-"mpc stop; pkill -USR1 -f i3pystatus"
+"source ~/.mpd_current; mpc stop"
   XF86AudioStop
-"mpc next; pkill -USR1 -f i3pystatus"
+"source ~/.mpd_current; mpc next"
   XF86AudioNext
-"mpc del 0; pkill -USR1 -f i3pystatus"
+"source ~/.mpd_current; mpc del 0"
   Shift + XF86AudioNext
-"mpc prev; pkill -USR1 -f i3pystatus"
+"source ~/.mpd_current; mpc prev"
   XF86AudioPrev
 
-# keyboard layout
-"setxkbmap us; pkill -USR1 -f i3pystatus"
+# Keyboard layout
+"setxkbmap us"
   Mod4 + e
-"setxkbmap de; pkill -USR1 -f i3pystatus"
+"setxkbmap de"
   Mod4 + d
 
-##################################
-# End of xbindkeys configuration #
-##################################
