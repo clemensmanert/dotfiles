@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ##chromium browser:
-chromium --user-data-dir=/home/clemens/browser_profiles/telegram --app=https://web.telegram.org/#/im
+chromium --user-data-dir=/home/$USER/browser_profiles/telegram --app=https://web.telegram.org/#/im
 
