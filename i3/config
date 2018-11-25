@@ -3,7 +3,7 @@
 # Modifier key: windows/super/Mod4
 set $m Mod4
 
-set $terminal "terminology || urxvt || mate-terminal || gnome-terminal || xterm"
+set $terminal "alacritty || terminology || urxvt || mate-terminal || gnome-terminal || xterm"
 
 # Colors
 set $focused        #3333CC
