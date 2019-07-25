@@ -6,22 +6,40 @@ set $m Mod4
 set $terminal "alacritty || terminology || urxvt || mate-terminal || gnome-terminal || xterm"
 
 # Colors
-set $focused        #3333CC
+set $focused        #0088CC
 set $focused_border #8888FF
 set $normal         #434343
-set $background     #555753
+set $background     #000000
 set $urgent         #ef2929
-set $text           #d3d7cf
+set $text           #ffffff
 
 # Restart / Reload i3 config
 bindsym $m+Shift+r restart
 bindsym $m+r reload
+
+bindsym $m+c exec dmenu_run_history
 
 # No borders
 for_window [class="^.*"] border pixel 0
 
 # Hide/show bar
 bindsym $m+Shift+b bar mode toggle
+
+# i3status-rust and otf-font-awesome needed
+bar {
+    font pango:DejaVu Sans Mono, FontAwesome 10
+    position top
+    status_command /usr/bin/i3status-rs ~/.config/i3/i3status-rs.toml
+    colors {
+        separator  $focused
+        background $background
+        statusline $text
+        focused_workspace $focused $focused $text
+        active_workspace $normal $normal $text
+        inactive_workspace $normal $normal $text
+        urgent_workspace $urgent $normal $text
+    }
+}
 
 # focus when mouse moves
 focus_follows_mouse no
