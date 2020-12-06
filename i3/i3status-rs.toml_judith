@@ -1,12 +1,14 @@
 [icons]
 name = "awesome"
+
 [icons.overrides]
 cpu = ""
 
 [[block]]
 block = "net"
-device = "enp3s0"
+device = "wlp2s0"
 ip = true
+ssid = true
 interval = 5
 
 [[block]]
@@ -37,6 +39,12 @@ interval = 1
 
 [[block]]
 block = "sound"
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "battery"
 
 [[block]]
 block = "time"

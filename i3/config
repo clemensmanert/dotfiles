@@ -28,7 +28,7 @@ bindsym $m+Shift+b bar mode toggle
 bar {
     font pango:DejaVu Sans Mono, FontAwesome 10
     position top
-    status_command /usr/bin/i3status-rs ~/.config/i3/i3status-rs.toml
+    status_command /usr/bin/i3status-rs ~/.config/i3/i3status-rs.toml_$HOSTNAME
     colors {
         separator  $focused
         background $background
