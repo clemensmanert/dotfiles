@@ -20,6 +20,8 @@
 
 (setq langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
 
+(setq backup-directory-alist `(("." . "~/.emacs_backups")))
+
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
