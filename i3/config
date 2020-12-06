@@ -46,6 +46,9 @@ focus_follows_mouse no
 # Use Mouse+$m to drag floating windows to their wanted position
 floating_modifier $m
 
+# toggle tiling / floating
+bindsym $m+Shift+space floating toggle
+
 # Exits i3
 bindsym $m+Escape exit
 
@@ -71,8 +74,10 @@ bindsym $m+Shift+l move right
 # Enter fullscreen mode for the focused container
 bindsym $m+f fullscreen
 
-# Toggle tiling/floating
-bindsym $m+Shift+a floating toggle
+# change container layout (stacked, tabbed, toggle split)
+bindsym $m+s layout stacking
+bindsym $m+w layout tabbed
+bindsym $m+e layout toggle split
 
 # Change focus between tiling/floating windows
 bindsym $m+a focus mode_toggle
