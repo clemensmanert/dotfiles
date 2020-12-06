@@ -1,45 +1,49 @@
 # Author: Clemens@Manert.de
 # Volume Control
-"pamixer -d 5;"
-  m:0x0 + c:122
-"pamixer -i 5;"
-  m:0x0 + c:123
-"pamixer -t;"
+"pactl set-sink-volume 0 -3%"
+  Control + m:0x0 + c:122
+
+"pactl set-sink-volume 0 +3%"
+  Control + m:0x0 + c:123c
+
+"pactl set-sink-mute 0 toggle"
   m:0x0 + c:121
 
 # Set display brightness
-"xbacklight -dec 10"
+"brightnessctl s 10+"
   m:0x0 + c:232
-"xbacklight -inc 10"
+"brightnessctl s 10-"
   m:0x0 + c:233
 
 # Set display brightness gently
-"xbacklight -dec 1"
+"brightnessctl s 1+"
   m:0x1 + c:232
-"xbacklight -inc 1"
+"brightnessctl s 1-"
   m:0x1 + c:233
 
+# Switch window
 "rofi -show window"
   Mod4 + w
 
-"dmenu_run_history"
+# Run something
+"rofi -show run"
   Mod4 + c
 
 # Choose password
-"passmenu"
-  Mod4 + k
+"rofi-pass"
+  Mod4 + i
 
 # Choose from clipboard history
-"clipmenu"
+"rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'"
   Mod4 + v
 
 # Choose and open a pdf
 "pdfmenu"
-Mod4 + s
+  Mod4 + s
 
 # Choose song and append after current
-"mpd_menu insert"
-  Shift + Mod4 + x
+"mpd_playlist"
+  Control + Mod4 + x
 
 # Choose song and append at the end
 "mpd_menu add"
@@ -59,7 +63,14 @@ Mod4 + s
 
 # Keyboard layout
 "setxkbmap us"
-  Mod4 + e
+  Mod4 + Shift + e
 "setxkbmap de"
-  Mod4 + d
+  Mod4 + Shift + d
 
+# Singlescreen
+"xrandr --output HDMI-1 --off; xrandr --output DVI-D-1 --off;"
+  Mod4 + Shift + s
+
+# Allscreens
+"xrandr --output DVI-I-1 --auto; xrandr --output DVI-D-1 --auto --left-of DVI-I-1; xrandr --output HDMI-1 --auto --right-of  DVI-I-1"
+  Mod4 + Shift + a
