@@ -54,6 +54,8 @@
 (global-semantic-stickyfunc-mode t)
 (global-semantic-idle-local-symbol-highlight-mode t)
 
+(add-to-list 'auto-mode-alist '("\.tsx\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\.ts\'" . typescript-mode))
 
 (dolist (hook '(text-mode-hook))
       (add-hook hook (lambda () (flyspell-mode t))))
