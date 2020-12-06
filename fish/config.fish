@@ -8,7 +8,7 @@ set PATH ~/projekte/dotfiles/scripts $PATH
 set PATH ~/projekte/dotfiles/links $PATH
 
 # Powerline: Needs to have: pip install powerline-status
-set fish_function_path $fish_function_path "/usr/lib/python3.7/site-packages/powerline/bindings/fish"
+set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
 powerline-setup
 
 set EDITOR "emacsclient --no-wait"
