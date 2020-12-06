@@ -17,7 +17,6 @@ set $text           #ffffff
 bindsym $m+Shift+r restart
 bindsym $m+r reload
 
-bindsym $m+c exec dmenu_run_history
 
 # No borders
 for_window [class="^.*"] border pixel 0
@@ -123,27 +122,4 @@ bindsym $m+Shift+9 move container to workspace 9
 bindsym $m+Shift+0 move container to workspace 10
 
 bindsym $m+Shift+numbersign move container to workspace back_and_forth
-bindsym $m+Shift+space move container to workspace back_and_forth
-
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
-# Media player controls
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioPause exec mpc pause
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-
-# Keyboard layout
-bindsym $m+e input * xkb_layout us
-bindsym $m+d input * xkb_layout de
 
