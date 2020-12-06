@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# A script which lists the music library in rofi and
+#   inserts | appends | replaces
+# the selected ones.
+# Call with the desired operations.
+
+chosen=$(find  ~/audio -printf '%A@	%P\n' | sort -k 1nr | awk -F"	" '{print $2}' | rofi -i -dmenu -multi-select)
+
+# Nothing was selected results in a exit status of 1
+if [ 1 -eq $? ]
+then
+  exit 1
+fi
+
+available_operations=("insert", "add", "replace");
+
+if [ $# -lt 1 ];
+then
+    operation=add;
+else
+    if [[ ! " ${available_operations[@]} " =~ " ${1} " ]];
+    then
+        operation=$1;
+    else
+        echo "Operation \"$1\"not supported";
+    fi
+fi
+
+IFS=$'\n'
+for selected in ${chosen}
+do
+    echo "progressing ${selected}"
+    # If just one song was selected these works
+    mpc ${operation} "${selected}"
+done
+
