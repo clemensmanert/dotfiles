@@ -1,6 +1,8 @@
-# ssh-agent stuff
-set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
-fundle plugin 'tuvistavie/fish-ssh-agent'
+# Install fundle if not there
+if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
+
+fundle plugin 'danhper/fish-ssh-agent'
+fundle init
 
 set PATH ~/projekte/dotfiles/scripts $PATH
 set PATH ~/projekte/dotfiles/links $PATH
@@ -10,4 +12,6 @@ set fish_function_path $fish_function_path "/usr/lib/python3.7/site-packages/pow
 powerline-setup
 
 set EDITOR "emacsclient --no-wait"
+
+alias t trash
 
