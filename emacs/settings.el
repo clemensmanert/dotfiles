@@ -35,6 +35,13 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
+;; robe on ruby
+(add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'ruby-mode-hook 'yard-mode)
+
+(eval-after-load 'company
+  '(push 'company-robe company-backends))
+
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
