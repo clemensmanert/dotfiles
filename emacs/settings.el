@@ -64,6 +64,8 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
+;; Do not open a new *compilation* if it is already open in another frame
+(setq-default display-buffer-reuse-frames t)
 
 (put 'flycheck-clang-args 'safe-local-variable (lambda (xx) t))
 
