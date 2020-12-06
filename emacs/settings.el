@@ -71,3 +71,13 @@
 
 
 (setq gdb-show-main t) ;; show gdb many windows when invoking gdb
+
+(defun buffer-only-keybinding (key command)
+  (interactive
+   "Set buffer only keybinding : \nCSet key %s buffer-locally to command: ")
+  (let ((oldmap (current-local-map))
+        (newmap (make-sparse-keymap)))
+    (when oldmap
+      (set-keymap-parent newmap oldmap))
+    (define-key newmap key command)
+    (use-local-map newmap)))
