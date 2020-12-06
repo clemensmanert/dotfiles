@@ -1,6 +1,3 @@
-source ~/.config/fish/z.fish
-__z_init
-
 # ssh-agent stuff
 set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 fundle plugin 'tuvistavie/fish-ssh-agent'
