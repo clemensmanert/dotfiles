@@ -3,6 +3,7 @@
                      helm-themes highlight-parentheses spaceline tao-theme
                      unison-mode visual-regexp yaml-mode flycheck which-key
                      yasnippet git-gutter auto-highlight-symbol airline-themes
+		     realgud
 										 nix-mode nixos-options company-nixos-options nix-sandbox
 										 spacemacs-theme lua-mode irony company-irony ansi-color
 		     ))
