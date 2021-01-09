@@ -69,3 +69,5 @@
 (global-set-key (kbd "M-.") 'semantic-ia-fast-jump)
 
 (global-set-key (kbd "M-$") 'helm-flyspell-correct)
+
+(global-set-key (kbd "C-c h") 'pop-tag-mark)
