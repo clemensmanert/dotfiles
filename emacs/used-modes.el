@@ -2,10 +2,10 @@
 (setq package-list '(cmake-mode  ggtags guide-key helm-purpose company-c-headers
                      helm-themes highlight-parentheses spaceline tao-theme
                      unison-mode visual-regexp yaml-mode flycheck which-key
-                     yasnippet git-gutter auto-highlight-symbol airline-themes
-		     realgud
-										 nix-mode nixos-options company-nixos-options nix-sandbox
-										 spacemacs-theme lua-mode irony company-irony ansi-color
+                     yasnippet git-gutter auto-highlight-symbol smart-mode-line
+		     realgud nix-mode nixos-options company-nixos-options
+		     nix-sandbox spacemacs-theme lua-mode irony company-irony
+		     ansi-color smart-mode-line
 		     ))
 
 (add-to-list 'package-archives
@@ -41,10 +41,9 @@
 (recentf-mode t)           ;; Keep track of recent files
 (which-key-mode t)         ;; Automatically show hotkeys
 (yas-global-mode t)        ;; Snippets
+(smart-mode-line-enable)   ;; Fancy status line
 
 (global-auto-highlight-symbol-mode t)
-
-(require 'airline-themes)
 
 (semantic-mode t)
 ;; Shows a summary at the bottom i.e. protype
