@@ -71,3 +71,5 @@
 (global-set-key (kbd "M-$") 'helm-flyspell-correct)
 
 (global-set-key (kbd "C-c h") 'pop-tag-mark)
+
+(global-set-key (kbd "C-c d") 'ff-find-other-file)
