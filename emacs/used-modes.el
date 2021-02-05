@@ -33,7 +33,8 @@
 (global-company-mode t)    ;; Autocompletion
 (global-flycheck-mode t)   ;; Try Bildung projects.
 (global-hl-line-mode t)    ;; Highlight the current line
-;;(global-linum-mode t)      ;; Show line number everywhere
+(global-display-line-numbers-mode t)      ;; Show line number everywhere
+(column-number-mode t)     ;; Show columns
 (global-whitespace-mode t) ;; Highlight tabs, (trailing) spaces and long lines
 (global-git-gutter-mode t) ;; Mark lines, which differ from last commit.
 
