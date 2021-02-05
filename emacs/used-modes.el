@@ -5,7 +5,7 @@
                      yasnippet git-gutter auto-highlight-symbol smart-mode-line
 		     realgud nix-mode nixos-options company-nixos-options
 		     nix-sandbox spacemacs-theme lua-mode irony company-irony
-		     ansi-color smart-mode-line
+		     ansi-color smart-mode-line spacemacs-theme
 		     ))
 
 (add-to-list 'package-archives
@@ -41,7 +41,10 @@
 (recentf-mode t)           ;; Keep track of recent files
 (which-key-mode t)         ;; Automatically show hotkeys
 (yas-global-mode t)        ;; Snippets
-(smart-mode-line-enable)   ;; Fancy status line
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
+(spaceline-helm-mode t)
+
 
 (global-auto-highlight-symbol-mode t)
 
