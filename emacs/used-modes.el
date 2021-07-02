@@ -5,7 +5,7 @@
                      yasnippet git-gutter auto-highlight-symbol
 		     realgud nix-mode nixos-options company-nixos-options
 		     nix-sandbox spacemacs-theme lua-mode irony company-irony
-		     ansi-color doom-modeline doom-themes
+		     ansi-color doom-modeline doom-themes yasnippet-snippets
 		     ))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
