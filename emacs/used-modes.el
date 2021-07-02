@@ -1,11 +1,11 @@
-	; List of packages, which should always be installed
+; List of packages, which should always be installed
 (setq package-list '(cmake-mode  ggtags guide-key helm-purpose company-c-headers
                      helm-themes highlight-parentheses spaceline tao-theme
                      unison-mode visual-regexp yaml-mode flycheck which-key
-                     yasnippet git-gutter auto-highlight-symbol smart-mode-line
+                     yasnippet git-gutter auto-highlight-symbol
 		     realgud nix-mode nixos-options company-nixos-options
 		     nix-sandbox spacemacs-theme lua-mode irony company-irony
-		     ansi-color smart-mode-line spacemacs-theme
+		     ansi-color doom-modeline
 		     ))
 
 (add-to-list 'package-archives
@@ -42,9 +42,7 @@
 (recentf-mode t)           ;; Keep track of recent files
 (which-key-mode t)         ;; Automatically show hotkeys
 (yas-global-mode t)        ;; Snippets
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
-(spaceline-helm-mode t)
+(doom-modeline-mode t)
 
 
 (global-auto-highlight-symbol-mode t)
