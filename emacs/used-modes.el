@@ -7,9 +7,6 @@
 		     nix-sandbox spacemacs-theme lua-mode irony company-irony
 		     ansi-color doom-modeline doom-themes
 		     ))
-
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
 ; Activate all the packages
