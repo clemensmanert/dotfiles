@@ -1,6 +1,6 @@
 ; List of packages, which should always be installed
 (setq package-list '(cmake-mode  ggtags guide-key helm-purpose company-c-headers
-                     helm-themes highlight-parentheses spaceline tao-theme
+                     helm-themes highlight-parentheses tao-theme
                      unison-mode visual-regexp yaml-mode flycheck which-key
                      yasnippet git-gutter auto-highlight-symbol
 		     realgud nix-mode nixos-options company-nixos-options
