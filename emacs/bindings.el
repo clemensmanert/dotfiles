@@ -75,3 +75,5 @@
 (global-set-key (kbd "C-c d") 'ff-find-other-file)
 
 (global-set-key (kbd "C-c C-f") 'project-find-file)
+
+(global-set-key (kbd "S-<backspace>") 'goto-last-change)
