@@ -73,3 +73,5 @@
 (global-set-key (kbd "C-c h") 'pop-tag-mark)
 
 (global-set-key (kbd "C-c d") 'ff-find-other-file)
+
+(global-set-key (kbd "C-c C-f") 'project-find-file)
