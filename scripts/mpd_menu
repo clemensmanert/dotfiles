@@ -5,7 +5,7 @@
 # the selected ones.
 # Call with the desired operations.
 
-chosen=$(find  ~/audio -printf '%A@	%P\n' | sort -k 1nr | awk -F"	" '{print $2}' | rofi -i -dmenu -multi-select)
+chosen=$(find  ~/audio -printf '%A@	%P\n' | sort -k 1nr | awk -F"	" '{print $2}' | rofi -i -dmenu -p "Add to playlist" -multi-select)
 
 # Nothing was selected results in a exit status of 1
 if [ 1 -eq $? ]

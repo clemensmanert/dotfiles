@@ -2,7 +2,7 @@
 
 source ~/.mpd_current
 
-chosen=$(mpc playlist | nl -s' ' -nln | rofi -dmenu -i)
+chosen=$(mpc playlist | nl -s' ' -nln | rofi -dmenu -p "Play now" -i)
 
 # Nothing was selected results in a exit status of 1
 if [ 1 -eq $? ]
