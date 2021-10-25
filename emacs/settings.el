@@ -39,6 +39,8 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'ruby-mode-hook 'yard-mode)
 
+(setq compilation-ask-about-save nil) ;; automatically save (without asking) before compile
+
 (eval-after-load 'company
   '(push 'company-robe company-backends))
 
