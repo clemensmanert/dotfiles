@@ -1,10 +1,10 @@
 # Author: Clemens@Manert.de
 # Volume Control
 "pactl set-sink-volume 0 -3%"
-  Control + m:0x0 + c:122
+  m:0x0 + c:122
 
 "pactl set-sink-volume 0 +3%"
-  Control + m:0x0 + c:123c
+  m:0x0 + c:123c
 
 "pactl set-sink-mute 0 toggle"
   m:0x0 + c:121
