@@ -1,0 +1,23 @@
+[core]
+	editor = emacs -nw
+[user]
+	name = Clemens Manert
+	mail = Clemens@Manert.de
+	email = Clemens@Manert.de
+	signingkey = 0981867082D7833CBB68F1529197EAE8F85E3A18
+[commit]
+	gpgsign = true
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+[push]
+	default = current
+[pull]
+	ff = only
+[init]
+	defaultBranch = master
