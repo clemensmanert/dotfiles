@@ -50,15 +50,15 @@
   Mod4 + x
 
 # multimediakeys
-"source ~/.mpd_current; mpc toggle"
+"mpc toggle"
   XF86AudioPlay
-"source ~/.mpd_current; mpc stop"
+"mpc stop"
   XF86AudioStop
-"source ~/.mpd_current; mpc next"
+"mpc next"
   XF86AudioNext
-"source ~/.mpd_current; mpc del 0"
+"mpc del 0"
   Shift + XF86AudioNext
-"source ~/.mpd_current; mpc prev"
+"mpc prev"
   XF86AudioPrev
 
 # Keyboard layout
