@@ -1,0 +1,10 @@
+[Unit]
+Description=Greenclip: clipboard manager daemon
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/greenclip daemon
+Restart=always
+
+[Install]
+WantedBy=default.target
