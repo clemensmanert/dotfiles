@@ -4,8 +4,9 @@
                      unison-mode visual-regexp yaml-mode flycheck which-key
                      yasnippet git-gutter auto-highlight-symbol
 		     realgud nix-mode nixos-options company-nixos-options
-		     nix-sandbox spacemacs-theme lua-mode irony company-irony
+		     nix-sandbox spacemacs-theme lua-mode
 		     ansi-color doom-modeline doom-themes yasnippet-snippets
+		     eglot
 		     ))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
