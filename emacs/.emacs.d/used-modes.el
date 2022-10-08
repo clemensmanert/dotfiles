@@ -1,3 +1,6 @@
+; Activate all the packages
+(package-initialize)
+
 ; List of packages, which should always be installed
 (setq package-list '(cmake-mode  ggtags guide-key helm-purpose company-c-headers
                      helm-themes highlight-parentheses tao-theme
@@ -10,8 +13,6 @@
 		     ))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
-; Activate all the packages
-(package-initialize)
 
 ; Fetch the list of packages available
 (unless package-archive-contents
