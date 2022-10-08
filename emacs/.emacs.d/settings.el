@@ -18,8 +18,6 @@
 (defadvice align-regexp (around align-regexp-with-spaces activate)
   (let ((indent-tabs-mode nil)) ad-do-it))
 
-(setq langtool-language-tool-jar "/usr/share/java/languagetool/languagetool-commandline.jar")
-
 (setq backup-directory-alist `(("." . "~/.emacs_backups")))
 
 ;; Typescript
