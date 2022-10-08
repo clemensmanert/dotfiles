@@ -72,3 +72,7 @@
       (set-keymap-parent newmap oldmap))
     (define-key newmap key command)
     (use-local-map newmap)))
+
+(defun revert-buffer-no-confirm ()
+  "Revert buffer without confirmation."
+  (interactive) (revert-buffer t t))

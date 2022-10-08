@@ -64,7 +64,7 @@
 (global-set-key (kbd "C-c s") 'dired-sidebar-toggle-with-current-directory)
 
 (global-set-key (kbd "C-#") 'smart-comment-region)
-(global-set-key (kbd "<f5>") 'compile)
+(global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 (global-set-key (kbd "C-c c") 'recompile)
 (global-set-key (kbd "M-.") 'semantic-ia-fast-jump)
 
