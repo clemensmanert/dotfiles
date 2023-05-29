@@ -3,7 +3,7 @@
 ;; Author: Clemens Manert (Clemens@Manert.de)
 
 ;; Emacs window Title
-(setq frame-title-format (concat "%b - Emacs " emacs-version))
+(setq frame-title-format (concat "%b - Emacs" emacs-version))
 
 ;; make company mode support camel case
 (setq company-dabbrev-downcase nil)
