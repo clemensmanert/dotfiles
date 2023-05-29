@@ -5,6 +5,9 @@
 ;; Emacs window Title
 (setq frame-title-format (concat "%b - Emacs" emacs-version))
 
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+
 ;; make company mode support camel case
 (setq company-dabbrev-downcase nil)
 
