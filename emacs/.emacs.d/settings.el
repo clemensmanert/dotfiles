@@ -5,6 +5,8 @@
 ;; Emacs window Title
 (setq frame-title-format (concat "%b - Emacs" emacs-version))
 
+(set-frame-font "Iosevka Curly 16" nil t)
+
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
 
