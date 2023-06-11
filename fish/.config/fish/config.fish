@@ -21,3 +21,4 @@ set EDITOR "emacsclient --no-wait"
 
 alias t trash
 
+source ~/.config/fish/fish_command_timer.fish
