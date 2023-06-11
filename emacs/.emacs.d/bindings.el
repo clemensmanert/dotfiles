@@ -19,13 +19,14 @@
 
 ;; Window selection
 (global-set-key (kbd "M-o") 'other-window)
-(global-set-key (kbd "C-<tab>") 'other-window)
-(global-set-key (kbd "<C-S-iso-lefttab>") 'previous-multiframe-window)
 (global-set-key (kbd "C-M-<up>") 'windmove-up)
 (global-set-key (kbd "C-M-<down>") 'windmove-down)
 (global-set-key (kbd "C-M-<right>") 'windmove-right)
 (global-set-key (kbd "C-M-<left>") 'windmove-left)
 
+;; Buffer selection
+(global-set-key (kbd "C-<tab>") 'switch-to-next-buffer)
+(global-set-key (kbd "<C-S-iso-lefttab>") 'switch-to-prev-buffer)
 ;; Multiple cursor
 (global-set-key (kbd "C-<") 'mc/mark-next-like-this)
 (global-set-key (kbd "C->") 'mc/mark-previous-like-this)
