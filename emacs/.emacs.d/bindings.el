@@ -78,3 +78,5 @@
 (global-set-key (kbd "C-c C-f") 'project-find-file)
 
 (global-set-key (kbd "S-<backspace>") 'goto-last-change)
+
+(global-set-key (kbd "M-p") 'helm-imenu-in-all-buffers)
