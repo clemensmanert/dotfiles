@@ -1,5 +1,5 @@
 function ev --description 'Tell a running emacs deamon to view the specified file'
-  cat $argv ^/dev/null | while read -l line
+  cat $argv /dev/null | while read -l line
     set argv $argv $line
   end
 
@@ -7,7 +7,7 @@ function ev --description 'Tell a running emacs deamon to view the specified fil
 
   for i in $argv
       if test -f $i
-      	 emacsclient --no-wait $i
+        emacsclient --no-wait $i &
       end
   end
 end
