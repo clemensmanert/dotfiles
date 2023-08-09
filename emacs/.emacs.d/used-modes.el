@@ -13,6 +13,7 @@
 		     eglot
 		     marginalia
                      magit
+		     blamer
 		     ))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
@@ -36,6 +37,7 @@
 (global-display-line-numbers-mode t)      ;; Show line number everywhere
 (column-number-mode t)     ;; Show columns
 (global-git-gutter-mode t) ;; Mark lines, which differ from last commit.
+(global-blamer-mode t)     ;; Show commit info in current line
 
 (recentf-mode t)           ;; Keep track of recent files
 (which-key-mode t)         ;; Automatically show hotkeys
