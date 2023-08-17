@@ -28,9 +28,13 @@ selection:
 # Live config reload (changes require restart)
 live_config_reload: true
 
-# Attach on a running tmux session on start.
+# Attach on a running tmux session on start,
+# or create a new one if there is none.
 shell:
-  program: atmux
+  program: tmux
+  args:
+    - new
+    - -A
 
 # #Colors (PaperColor - Light)
 # colors:
