@@ -11,9 +11,6 @@
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
 
-;; make company mode support camel case
-(setq company-dabbrev-downcase nil)
-
 ;; Visualize tabs, lines longer than 80 chars and trailing spaces.
 (setq whitespace-style '(face tabs lines-tail trailing))
 
@@ -38,19 +35,10 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
-;; colorize output of compile buffer; prefents from printing escape sequences
-(require 'ansi-color)
-(defun colorize-compilation-buffer ()
-  (toggle-read-only)
-  (ansi-color-apply-on-region compilation-filter-start (point))
-  (toggle-read-only))
-(add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
-
 ;; Do not open a new *compilation* if it is already open in another frame
 (setq-default display-buffer-reuse-frames t)
 
 (put 'flycheck-clang-args 'safe-local-variable (lambda (xx) t))
-
 
 (setq gdb-show-main t) ;; show gdb many windows when invoking gdb
 
