@@ -41,6 +41,7 @@
 (yas-global-mode t)        ;; Snippets
 (doom-modeline-mode t)
 
+(marginalia-mode t)        ;; Show annotations in the minibuffer completions
 
 (global-auto-highlight-symbol-mode t)
 
