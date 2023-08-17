@@ -45,33 +45,25 @@
 (global-unset-key (kbd "C-z"))
 
 (global-set-key (kbd "C-.") 'find-tag)
+(global-set-key (kbd "C-x C-f") 'find-file)
 
-;; Helm
-(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "<f6>") 'consult-theme)
+(global-set-key (kbd "C-x b") 'consult-buffer)
+(global-set-key (kbd "C-c f") 'consult-locate)
+(global-set-key (kbd "C-s") 'consult-line)
+(global-set-key (kbd "C-S-s") 'consult-line-multi)
 
-(global-set-key (kbd "<f6>") 'helm-themes)
-
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-
-(global-set-key (kbd "C-x C-r") 'helm-recentf)
-(global-set-key (kbd "C-c f") 'helm-locate)
-
-(global-set-key (kbd "C-s") 'helm-occur)
-
-(global-set-key (kbd "C-x C-g") 'helm-imenu)
-(global-set-key (kbd "M-RET") 'helm-company)
+(global-set-key (kbd "C-x C-g") 'consult-imenu)
+(global-set-key (kbd "M-g M-g") 'consult-goto-line)
+(global-set-key (kbd "M-C-<return>") 'consult-mark)
+(global-set-key (kbd "C-c g") 'consult-ripgrep)
 
 (global-set-key (kbd "C-c s") 'dired-sidebar-toggle-with-current-directory)
 
-(global-set-key (kbd "C-#") 'smart-comment-region)
+(global-set-key (kbd "C-#") 'smart-comment-region)co
 (global-set-key (kbd "<f5>") 'revert-buffer-no-confirm)
 (global-set-key (kbd "C-c c") 'recompile)
-(global-set-key (kbd "M-.") 'semantic-ia-fast-jump)
-
-(global-set-key (kbd "M-$") 'helm-flyspell-correct)
-
-(global-set-key (kbd "C-c h") 'pop-tag-mark)
+(global-set-key (kbd "M-.") 'semantic-ia-fast-jump) ;
 
 (global-set-key (kbd "C-c d") 'ff-find-other-file)
 
@@ -79,4 +71,3 @@
 
 (global-set-key (kbd "S-<backspace>") 'goto-last-change)
 
-(global-set-key (kbd "M-p") 'helm-imenu-in-all-buffers)

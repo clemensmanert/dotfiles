@@ -1,18 +1,19 @@
-; Activate all the packages
+
+					; Activate all the packages
 (package-initialize)
 
 ; List of packages, which should always be installed
-(setq package-list '(cmake-mode  ggtags guide-key helm-purpose company-c-headers
-                     helm-themes highlight-parentheses tao-theme
+(setq package-list '(cmake-mode  ggtags guide-key
+                     highlight-parentheses tao-theme
                      unison-mode visual-regexp yaml-mode flycheck which-key
                      yasnippet git-gutter auto-highlight-symbol
-		     realgud nix-mode nixos-options company-nixos-options
+		     realgud nix-mode nixos-options
 		     nix-sandbox spacemacs-theme lua-mode
-		     ansi-color doom-modeline doom-themes yasnippet-snippets
+		     doom-modeline doom-themes yasnippet-snippets
 		     eglot
+		     marginalia
 		     ))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-
 
 ; Fetch the list of packages available
 (unless package-archive-contents
@@ -35,7 +36,6 @@
 (column-number-mode t)     ;; Show columns
 (global-git-gutter-mode t) ;; Mark lines, which differ from last commit.
 
-(helm-mode t)              ;; Better ui
 (recentf-mode t)           ;; Keep track of recent files
 (which-key-mode t)         ;; Automatically show hotkeys
 (yas-global-mode t)        ;; Snippets
@@ -67,3 +67,20 @@
 (dolist (hook '(LaTeX-mode-hook))
       (add-hook hook (lambda () (flyspell-mode t))))
 
+(use-package vertico
+  :custom
+  (vertico-count 22)                    ; Number of candidates to display
+  (vertico-resize t)
+  (vertico-cycle t) ; Go from last to first candidate and first to last (cycle)?
+  :config
+  (vertico-mode))
+
+(use-package orderless
+  :custom
+  (completion-category-defaults nil)
+  (orderless-matching-styles
+   '(
+     orderless-smart-case
+     orderless-prefixes
+   ))
+)
