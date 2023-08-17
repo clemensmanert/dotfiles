@@ -45,14 +45,6 @@
 
 (global-auto-highlight-symbol-mode t)
 
-(semantic-mode t)
-;; Shows a summary at the bottom i.e. protype
-(global-semantic-idle-summary-mode t)
-
-;; Shows the context in the headline
-(global-semantic-stickyfunc-mode t)
-(global-semantic-idle-local-symbol-highlight-mode t)
-
 (add-to-list 'auto-mode-alist '("\.tsx\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\.ts\'" . typescript-mode))
 
