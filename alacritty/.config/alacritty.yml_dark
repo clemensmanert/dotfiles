@@ -17,6 +17,11 @@ bell:
   animation: EaseOutExpo
   duration: 300
 
+font:
+  family:
+    normal: Iosevka
+  size: 8
+
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
