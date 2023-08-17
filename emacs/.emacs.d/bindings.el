@@ -7,7 +7,6 @@
 
  ;; auto complete current word
 (global-set-key [C-return] 'company-complete)
-(global-set-key (kbd "C-c c") 'company-complete)
 (global-set-key (kbd "C-c z") 'company-yasnippet)
 (global-set-key (kbd "C-c y") 'company-yasnippet)
 (global-set-key (kbd "M-RET") 'completion-at-point)
