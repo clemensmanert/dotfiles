@@ -10,6 +10,7 @@
 (global-set-key (kbd "C-c c") 'company-complete)
 (global-set-key (kbd "C-c z") 'company-yasnippet)
 (global-set-key (kbd "C-c y") 'company-yasnippet)
+(global-set-key (kbd "M-RET") 'completion-at-point)
 
 ;; Window control
 (global-set-key (kbd "M-3") 'split-window-horizontally)
