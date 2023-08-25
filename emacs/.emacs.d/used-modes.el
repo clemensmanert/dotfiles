@@ -72,8 +72,6 @@
   :custom
   (completion-category-defaults nil)
   (orderless-matching-styles
-   '(
-     orderless-smart-case
-     orderless-prefixes
-   ))
+  '(orderless-flex orderless-prefixes)
+  )  
 )
