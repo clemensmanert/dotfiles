@@ -75,3 +75,9 @@
   '(orderless-flex orderless-prefixes)
   )  
 )
+
+(use-package treesit-auto
+  :demand t
+  :config
+  (global-treesit-auto-mode)
+)
