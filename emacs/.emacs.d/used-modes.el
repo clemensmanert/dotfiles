@@ -12,6 +12,7 @@
 		     doom-modeline doom-themes yasnippet-snippets
 		     eglot
 		     marginalia
+                     magit
 		     ))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
