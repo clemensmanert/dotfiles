@@ -18,15 +18,18 @@ cpu = ""
 
 [[block]]
 block = "cpu"
-format = "$icon$frequency $barchart"
+format = " $icon$frequency $barchart "
 
 [[block]]
-block = "sound"
-step_width = 3
+block = "memory"
+format = " $icon $mem_used_percents.eng(w:2) "
 
 [[block]]
 block = "battery"
-format = "$icon $percentage"
+format = "$icon $percentage "
+
+[[block]]
+block = "disk_space"
 
 [[block]]
 block = "backlight"
@@ -40,6 +43,10 @@ block = "hueshift"
 hue_shifter = "redshift"
 step = 50
 click_temp = 3500
+
+[[block]]
+block = "sound"
+step_width = 3
 
 [[block]]
 block = "time"
