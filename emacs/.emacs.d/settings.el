@@ -56,3 +56,5 @@
 (defun revert-buffer-no-confirm ()
   "Revert buffer without confirmation."
   (interactive) (revert-buffer t t))
+(require 'orderless)
+(setq completion-styles '(orderless flex))

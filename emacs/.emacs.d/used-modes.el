@@ -71,13 +71,6 @@
   :config
   (vertico-mode))
 
-(use-package orderless
-  :custom
-  (completion-category-defaults nil)
-  (orderless-matching-styles
-  '(orderless-flex orderless-prefixes)
-  )  
-)
 
 (use-package treesit-auto
   :demand t
