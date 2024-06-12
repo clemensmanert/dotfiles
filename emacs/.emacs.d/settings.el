@@ -10,6 +10,7 @@
 
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook (local-set-key (kbd "C-<return>") 'eglot-code-actions))
 
 ;; Visualize tabs, lines longer than 80 chars and trailing spaces.
 (setq whitespace-style '(face tabs lines-tail trailing))
