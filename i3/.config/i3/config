@@ -1,0 +1,130 @@
+# Author: Clemens@Manert.de
+
+# Modifier key: windows/super/Mod4
+set $m Mod4
+
+set $terminal "alacritty || terminology || urxvt || mate-terminal || gnome-terminal || xterm"
+
+# Colors
+set $focused        #0088CC
+set $focused_border #8888FF
+set $normal         #434343
+set $background     #000000
+set $urgent         #ef2929
+set $text           #ffffff
+
+# Restart / Reload i3 config
+bindsym $m+Shift+r restart
+bindsym $m+r reload
+
+
+# No borders
+for_window [class="^.*"] border pixel 0
+
+# Hide/show bar
+bindsym $m+Shift+b bar mode toggle
+
+# i3status-rust and otf-font-awesome needed
+bar {
+    font pango:DejaVu Sans Mono, FontAwesome 10
+    position top
+    status_command /usr/bin/i3status-rs ~/.config/i3/i3status-rs.toml_$HOSTNAME
+    colors {
+        separator  $focused
+        background $background
+        statusline $text
+        focused_workspace $focused $focused $text
+        active_workspace $normal $normal $text
+        inactive_workspace $normal $normal $text
+        urgent_workspace $urgent $normal $text
+    }
+}
+
+# focus when mouse moves
+focus_follows_mouse no
+
+# Use Mouse+$m to drag floating windows to their wanted position
+floating_modifier $m
+
+# toggle tiling / floating
+bindsym $m+Shift+space floating toggle
+
+# Exits i3
+bindsym $m+Escape exit
+
+# start a terminal
+bindsym $m+Shift+Return split horizontal; exec $terminal
+bindsym $m+Return       split vertical;   exec $terminal
+
+# Close focused container
+bindsym $m+Shift+c kill
+
+# Change focus
+bindsym $m+h focus left
+bindsym $m+j focus down
+bindsym $m+k focus up
+bindsym $m+l focus right
+
+# Move focused container
+bindsym $m+Shift+h move left
+bindsym $m+Shift+j move down
+bindsym $m+Shift+k move up
+bindsym $m+Shift+l move right
+
+# Enter fullscreen mode for the focused container
+bindsym $m+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $m+s layout stacking
+bindsym $m+w layout tabbed
+bindsym $m+e layout toggle split
+
+# Change focus between tiling/floating windows
+bindsym $m+a focus mode_toggle
+
+# Resize container
+bindsym $m+Ctrl+h resize shrink width  1 px or 1 ppt
+bindsym $m+Ctrl+k resize grow   height 1 px or 1 ppt
+bindsym $m+Ctrl+j resize shrink height 1 px or 1 ppt
+bindsym $m+Ctrl+l resize grow   width  1 px or 1 ppt
+
+# Change border
+bindsym $m+b border toggle
+
+# Rename workspace
+bindsym $m+comma exec i3-input -F 'rename workspace to %s' \
+-P 'rename workspace to: '
+
+# switch to another workspace
+bindsym $m+g [urgent=latest] focus
+bindsym $m+space workspace back_and_forth
+
+bindsym $m+n workspace next_on_output
+bindsym $m+p workspace prev_on_output
+bindsym $m+1 workspace 1
+bindsym $m+2 workspace 2
+bindsym $m+3 workspace 3
+bindsym $m+4 workspace 4
+bindsym $m+5 workspace 5
+bindsym $m+6 workspace 6
+bindsym $m+7 workspace 7
+bindsym $m+8 workspace 8
+bindsym $m+9 workspace 9
+bindsym $m+0 workspace 10
+
+# move container to specific workspace
+bindsym $m+Shift+n move container to workspace next_on_output
+bindsym $m+Shift+p move container to workspace prev_on_output
+bindsym $m+Shift+1 move container to workspace 1
+bindsym $m+Shift+2 move container to workspace 2
+bindsym $m+Shift+3 move container to workspace 3
+bindsym $m+Shift+4 move container to workspace 4
+bindsym $m+Shift+5 move container to workspace 5
+bindsym $m+Shift+6 move container to workspace 6
+bindsym $m+Shift+7 move container to workspace 7
+bindsym $m+Shift+8 move container to workspace 8
+bindsym $m+Shift+9 move container to workspace 9
+bindsym $m+Shift+0 move container to workspace 10
+
+bindsym $m+Shift+numbersign move container to workspace back_and_forth
+
