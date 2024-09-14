@@ -2,21 +2,12 @@
 
 # Modifier key: windows/super/Mod4
 set $m Mod4
-
-set $terminal "alacritty || terminology || urxvt || mate-terminal || gnome-terminal || xterm"
-
-# Colors
-set $focused        #0088CC
-set $focused_border #8888FF
-set $normal         #434343
-set $background     #000000
-set $urgent         #ef2929
-set $text           #ffffff
+set $terminal "alacritty || terminology || urxvt || mate-terminal \
+               || gnome-terminal || xterm"
 
 # Restart / Reload i3 config
 bindsym $m+Shift+r restart
 bindsym $m+r reload
-
 
 # No borders
 for_window [class="^.*"] border pixel 0
@@ -26,19 +17,26 @@ bindsym $m+Shift+b bar mode toggle
 
 # i3status-rust and otf-font-awesome needed
 bar {
-    font pango:DejaVu Sans Mono, FontAwesome 10
-    position top
-    status_command /usr/bin/i3status-rs ~/.config/i3/i3status-rs.toml_$HOSTNAME
+#    font pango:DejaVu Sans Mono, FontAwesome 14
+    font pango: IosevkaTermNerdFont, 16
+    position bottom
+    status_command /usr/bin/i3status-rs ~/.config/i3/i3status-rs.toml
     colors {
-        separator  $focused
-        background $background
-        statusline $text
-        focused_workspace $focused $focused $text
-        active_workspace $normal $normal $text
-        inactive_workspace $normal $normal $text
-        urgent_workspace $urgent $normal $text
+        separator           {{OnBackground1}}
+        background          {{Background1}}
+        statusline          {{Background1}}
+        focused_workspace   {{Primary}}      {{Primary}}      {{OnPrimary}}
+        active_workspace    {{Primary}}      {{Primary}}      {{OnPrimary}}
+        inactive_workspace  {{Disabled}}     {{Disabled}}     {{OnDisabled}}
+        urgent_workspace    {{Error}}        {{Error}}        {{OnError}}
     }
 }
+
+
+gaps horizontal 20
+gaps vertical 15
+
+# gaps outer current toggle 60
 
 # focus when mouse moves
 focus_follows_mouse no
@@ -54,7 +52,7 @@ bindsym $m+Escape exit
 
 # start a terminal
 bindsym $m+Shift+Return split horizontal; exec $terminal
-bindsym $m+Return       split vertical;   exec $terminal
+bindsym $m+Return       split vertical; exec $terminal
 
 # Close focused container
 bindsym $m+Shift+c kill
@@ -127,4 +125,9 @@ bindsym $m+Shift+9 move container to workspace 9
 bindsym $m+Shift+0 move container to workspace 10
 
 bindsym $m+Shift+numbersign move container to workspace back_and_forth
+
+for_window [class="gallery"] border pixel 1
+for_window [class="gallery"] floating enable
+for_window [class="input"] border pixel 1
+for_window [class="input"] floating enable
 

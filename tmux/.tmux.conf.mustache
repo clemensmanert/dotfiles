@@ -1,0 +1,21 @@
+# Allows scrolling and selecting in copy-mode
+set -g mouse on
+set -g history-limit 30000
+
+# Reload config on Prefix + R
+bind R source-file ~/.tmux.conf
+
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @yank_selection_mouse 'primary' # or 'primary' or 'secondary'
+
+set -g status-left " #{scroll_position}"
+set -g status-right "#{pane_current_path} "
+
+setw -g window-status-format ' #I #W '
+setw -g window-status-current-format ' #I #W '
+
+setw -g cursor-color '{{Primary}}'
+setw -g mode-style 'bg={{Secondary}} fg={{OnSecondary}}'
+setw -g status-style 'bg={{Background3}} fg={{OnBackground3}}'
+setw -g window-status-style 'fg={{OnBackground3}} bg={{Background3}} '
+setw -g window-status-current-style 'fg={{OnPrimary}} bg={{Primary}} bold'

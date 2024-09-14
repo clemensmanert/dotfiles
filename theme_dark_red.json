@@ -1,0 +1,43 @@
+{
+  "Background1":   "#101010",
+  "OnBackground1": "#e1e1e1",
+
+  "Background2":   "#303030",
+  "OnBackground2": "#f1f1f1",
+
+  "Background3":   "#505050",
+  "OnBackground3": "#ffffff",
+
+  "Primary":      "#AF0000",
+  "OnPrimary":    "#f1f1f1",
+ 
+  "Secondary":    "#0000AF",
+  "OnSecondary":  "#e1e1e1",
+
+  "Error":        "#ffffff",
+  "OnError":      "#fe1010",
+
+  "Warning":      "#101010",
+  "OnWarning":    "#fefe10",
+
+  "Disabled":     "#222222",
+  "OnDisabled":   "#dedede",
+ 
+  "Black":        "#eeeeee",
+  "Red":          "#af0000",
+  "Green":        "#008700",
+  "Yellow":       "#5f8700",
+  "Blue":         "#0087af",
+  "Magenta":      "#878787",
+  "Cyan":         "#005f87",
+  "White":        "#444444",
+
+  "BlackBright":  "#bcbcbc",
+  "RedBright":    "#d70000",
+  "GreenBright":  "#d70087",
+  "YellowBright": "#8700af",
+  "BlueBright":   "#d75f00",
+  "MagentaBright":"#d75f00",
+  "CyanBright":   "#005faf",
+  "WhiteBright":  "#005f87"
+}
