@@ -14,7 +14,6 @@ if [ -d ~/.rvm/bin ]
 end
 
 # Powerline: Needs to have: pip install powerline-status
-
 set EDITOR "emacsclient --no-wait"
 
 alias t trash
@@ -26,14 +25,21 @@ set --global tide_left_prompt_items pwd git
 set --global tide_prompt_color_frame_and_connection "{{OnBackground2}}"
 set --global tide_prompt_color_separator_same_color "{{OnBackground2}}"
 
-
-set --global tide_git_bg_color "{{Background2}}"
+set --global tide_git_bg_color          "{{Background2}}"
 set --global tide_git_bg_color_unstable "{{Background2}}"
-set --global tide_git_bg_color_urgent "{{Background2}}"
+set --global tide_git_bg_color_urgent   "{{Warning}}"
+set --global tide_git_color_branch      "{{Green}}"
+set --global tide_git_color_conflicted  "{{Error}}"
+set --global tide_git_color_dirty       "{{Warning}}"
+set --global tide_git_color_operation   "{{OnBackground1}}"
+set --global tide_git_color_staged      "{{OnBackground1}}"
+set --global tide_git_color_stash       "{{OnBackground1}}"
+set --global tide_git_color_untracked   "{{OnBackground1}}"
+set --global tide_git_color_upstream    "{{OnBackground1}}"
 
-set --global tide_pwd_color "{{OnBackground2}}"
-set --global tide_pwd_bg_color "{{Background2}}"
-set --global tide_pwd_color_anchors "{{OnBackground2}}"
-set --global tide_pwd_color_dirs "{{OnBackground2}}"
+set --global tide_pwd_color                "{{OnBackground2}}"
+set --global tide_pwd_bg_color             "{{Background2}}"
+set --global tide_pwd_color_anchors        "{{OnBackground2}}"
+set --global tide_pwd_color_dirs           "{{OnBackground2}}"
 set --global tide_pwd_color_truncated_dirs "{{OnBackground2}}"
 
