@@ -1,13 +1,12 @@
 [theme.overrides]
-idle_fg = "{{OnBackground1}}"
-idle_bg = "{{Background1}}"
-good_fg = "{{OnBackground1}}"
-good_bg = "{{Background1}}"
-info_fg = "{{Background1}}"
-info_bg = "{{OnBackground1}}"
+idle_fg = "{{OnBackground3}}"
+idle_bg = "{{Background3}}"
 
-separator_bg = "{{Background1}}"
-separator_fg = "{{OnBackground1}}"
+info_fg = "{{OnBackground3}}"
+info_bg = "{{Background3}}"
+
+good_fg = "{{OnBackground3}}"
+good_bg = "{{Background3}}"
 
 warning_fg = "{{OnWarning}}"
 warning_bg = "{{Warning}}"
@@ -15,8 +14,13 @@ warning_bg = "{{Warning}}"
 critical_fg = "{{OnError}}"
 critical_bg = "{{Error}}"
 
+alternating_tint_fg = "{{OnBackground3}}"
+alternating_tint_bg = "{{Background3}}"
 
-separator = " "
+separator_bg = "{{Background1}}"
+separator_fg = "{{Background3}}"
+
+separator = " "
 
 [icons]
 icons = "awesome6"
@@ -34,7 +38,7 @@ format = " $icon $mem_used_percents.eng(w:2) "
 
 [[block]]
 block = "battery"
-format = "$icon $percentage "
+format = "$icon $percentage"
 
 [[block]]
 block = "disk_space"
