@@ -15,10 +15,8 @@ for_window [class="^.*"] border pixel 0
 # Hide/show bar
 bindsym $m+Shift+b bar mode toggle
 
-# i3status-rust and otf-font-awesome needed
 bar {
-#    font pango:DejaVu Sans Mono, FontAwesome 14
-    font pango: IosevkaTermNerdFont, 16
+    font pango: {{font-family}}, {{font-size}}
     position bottom
     status_command /usr/bin/i3status-rs ~/.config/i3/i3status-rs.toml
     colors {
