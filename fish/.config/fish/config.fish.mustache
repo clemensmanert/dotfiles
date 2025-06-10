@@ -1,8 +1,6 @@
-# Install fundle if not there
-#if not functions -q fundle; eval (curl -sfL https://git.io/fundle-install); end
-#if not functions -q fisher; eval (curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher); end
-#fisher install IlanCosman/tide@v6
-#fisher install danhper/fish-ssh-agent
+if not set -q SSH_AUTH_SOCK
+  eval (ssh-agent -c)
+end
 
 set PATH ~/projekte/dotfiles/scripts $PATH
 set PATH ~/projekte/dotfiles/links $PATH
